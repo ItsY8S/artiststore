@@ -1,9 +1,0 @@
-// Will change the header color of VS Code when project folder is opened
-// This allows me to differenciate the backend from the frontend
-
-{
-  "workbench.colorCustomizations": {
-    "titleBar.activeBackground": "#FF2C70",
-    "titleBar.inactiveBackground": "#FF2C70CC"
-  }
-}
