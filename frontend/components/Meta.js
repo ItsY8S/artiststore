@@ -11,6 +11,7 @@ const Meta = () => {
         rel="stylesheet"
       />
       <link href="/static/css/style.css" rel="stylesheet" />
+      <link href="/static/css/nprogress.css" rel="stylesheet" />
       <link href="/static/css/normalize.css" rel="stylesheet" />
       <title>Artist Store</title>
     </Head>
