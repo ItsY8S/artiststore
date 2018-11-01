@@ -1,9 +1,10 @@
 import Link from 'next/link'
+import Title from '../components/Title'
 
 const Products = props => {
   return (
     <div>
-      <h1>Products</h1>
+      <Title title="Products" />
     </div>
   )
 }
