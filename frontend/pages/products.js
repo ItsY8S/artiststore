@@ -1,12 +1,13 @@
-import Link from 'next/link'
 import Title from '../components/Title'
+import Products from '../components/Products'
 
-const Products = props => {
+const products = props => {
   return (
     <div>
       <Title title="Products" />
+      <Products />
     </div>
   )
 }
 
-export default Products
+export default products
