@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ProductStyles from './styles/ProductStyles'
 import Link from 'next/link'
 import formatMoney from '../lib/formatMoney'
 

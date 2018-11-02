@@ -56,7 +56,7 @@ var Meta = function Meta() {
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
-    href: "/static/css/style.css",
+    href: "/static/css/normalize.css",
     rel: "stylesheet",
     __source: {
       fileName: _jsxFileName,
@@ -64,7 +64,7 @@ var Meta = function Meta() {
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
-    href: "/static/css/nprogress.css",
+    href: "/static/css/style.css",
     rel: "stylesheet",
     __source: {
       fileName: _jsxFileName,
@@ -72,17 +72,25 @@ var Meta = function Meta() {
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
-    href: "/static/css/normalize.css",
+    href: "/static/css/skeleton.css",
     rel: "stylesheet",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 15
     },
     __self: this
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
+    href: "/static/css/nprogress.css",
+    rel: "stylesheet",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 16
+    },
+    __self: this
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 17
     },
     __self: this
   }, "Artist Store"));
@@ -331,7 +339,7 @@ var StyledPage = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.w
 var Inner = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].main.withConfig({
   displayName: "Page__Inner",
   componentId: "sc-12qg6x5-1"
-})(["max-width:100%;margin-left:253px;padding:0px 50px;height:100%;grid-area:main;"]);
+})(["max-width:100%;margin-left:253px;padding:25px 50px;height:100%;grid-area:main;"]);
 
 var Page =
 /*#__PURE__*/

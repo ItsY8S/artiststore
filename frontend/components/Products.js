@@ -3,6 +3,7 @@ import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 import styled from 'styled-components'
 import Product from './Product'
+import Link from 'next/link'
 
 const ALL_PRODUCTS_QUERY = gql`
   query ALL_PRODUCTS_QUERY {
@@ -28,10 +29,26 @@ class Products extends React.Component {
       <Query query={ALL_PRODUCTS_QUERY}>
         {({ data, error, loading }) => {
           if (loading) return <p>Loading...</p>
-          if (error) return <p>Error: {error.message}</p>
+          if (error)
+            return (
+              <ProductsGrid>
+                <Link href="/productAdd">
+                  <a>
+                    <img src="/static/add.svg" alt="Add a Product" />
+                  </a>
+                </Link>
+                <p>Error: {error.message}</p>
+              </ProductsGrid>
+            )
           console.log(data)
           return (
             <ProductsGrid>
+              <Link>
+                <a>
+                  <img src="/static/add.svg" alt="Add a Product" />
+                </a>
+              </Link>
+
               {data.products.map(product => {
                 ;<div className="product">
                   <Product key={product.id} product={product} />
@@ -46,3 +63,4 @@ class Products extends React.Component {
 }
 
 export default Products
+export { ALL_PRODUCTS_QUERY }

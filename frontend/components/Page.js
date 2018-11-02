@@ -20,7 +20,7 @@ const StyledPage = styled.div`
 const Inner = styled.main`
   max-width: 100%;
   margin-left: 253px;
-  padding: 0px 50px;
+  padding: 25px 50px;
   height: 100%;
   grid-area: main;
 `
