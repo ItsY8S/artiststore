@@ -390,9 +390,9 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(ProductAdd)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
-      title: 'test title',
-      price: 1000,
-      description: 'test description',
+      title: '',
+      price: 0,
+      description: '',
       image: ''
     });
 
@@ -519,25 +519,38 @@ function (_React$Component) {
           id: "hero",
           className: "fluid",
           src: "/static/camera-icon.svg",
-          alt: "Add Product Image",
-          onClick: _this2.handleSwapInput,
+          alt: "Add Product Image" // onClick={this.handleSwapInput}
+          // onChange={this.handleChange}
+          ,
           __source: {
             fileName: _jsxFileName,
             lineNumber: 86
+          },
+          __self: this
+        }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+          type: "file",
+          className: "live-input product-hero big-again fluid",
+          accept: "image/png, image/jpeg",
+          name: "image" // style={{ display: 'none' }}
+          ,
+          onChange: _this2.handleChange,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 94
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
           className: "product-info",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 94
+            lineNumber: 103
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
           className: "title-and-price",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 95
+            lineNumber: 104
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -550,7 +563,7 @@ function (_React$Component) {
           required: true,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 96
+            lineNumber: 105
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -563,14 +576,14 @@ function (_React$Component) {
           required: true,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 105
+            lineNumber: 114
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
           className: "product-description",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 115
+            lineNumber: 124
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -583,21 +596,21 @@ function (_React$Component) {
           value: _this2.state.description,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 116
+            lineNumber: 125
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
           className: "product-buttons",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 126
+            lineNumber: 135
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
           className: "inherit",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 127
+            lineNumber: 136
           },
           __self: this
         }, "Back"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
@@ -605,7 +618,7 @@ function (_React$Component) {
           type: "submit",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 128
+            lineNumber: 137
           },
           __self: this
         }, "Add")))));

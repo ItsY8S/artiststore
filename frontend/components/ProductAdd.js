@@ -27,9 +27,9 @@ const CREATE_PRODUCT_MUTATION = gql`
 
 class ProductAdd extends React.Component {
   state = {
-    title: 'test title',
-    price: 1000,
-    description: 'test description',
+    title: '',
+    price: 0,
+    description: '',
     image: ''
   }
 
@@ -88,7 +88,16 @@ class ProductAdd extends React.Component {
                   className="fluid"
                   src="/static/camera-icon.svg"
                   alt="Add Product Image"
-                  onClick={this.handleSwapInput}
+                  // onClick={this.handleSwapInput}
+                  // onChange={this.handleChange}
+                />
+                <input
+                  type="file"
+                  className="live-input product-hero big-again fluid"
+                  accept="image/png, image/jpeg"
+                  name="image"
+                  // style={{ display: 'none' }}
+                  onChange={this.handleChange}
                 />
               </div>
               <div className="product-info">
