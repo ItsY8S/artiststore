@@ -337,7 +337,8 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       var product = this.props.product;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ProductStyles, {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "product",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 13
@@ -362,7 +363,7 @@ function (_React$Component) {
         },
         __self: this
       }, product.image && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "image",
+        className: "image fluid",
         src: product.image,
         alt: product.title,
         __source: {
@@ -374,7 +375,7 @@ function (_React$Component) {
         className: "price",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 24
+          lineNumber: 28
         },
         __self: this
       }, Object(_lib_formatMoney__WEBPACK_IMPORTED_MODULE_3__["default"])(product.price)))));
@@ -526,6 +527,58 @@ function (_React$Component) {
       }
     });
 
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "uploadFile",
+    /*#__PURE__*/
+    function () {
+      var _ref = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
+        var files, data, res, file, hero;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                console.log('uploading file');
+                files = e.target.files;
+                data = new FormData();
+                data.append('file', files[0]);
+                data.append('upload_preset', 'artiststore');
+                _context.next = 7;
+                return fetch('https://api.cloudinary.com/v1_1/y8s/image/upload', {
+                  method: 'POST',
+                  body: data
+                });
+
+              case 7:
+                res = _context.sent;
+                _context.next = 10;
+                return res.json();
+
+              case 10:
+                file = _context.sent;
+                console.log(file);
+
+                _this.setState({
+                  image: file.secure_url
+                });
+
+                hero = document.querySelector('#hero');
+                hero.src = _this.state.image;
+                hero.classList.remove('two-hundred');
+
+              case 16:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      return function (_x) {
+        return _ref.apply(this, arguments);
+      };
+    }());
+
     return _this;
   }
 
@@ -539,30 +592,30 @@ function (_React$Component) {
         variables: this.state,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 70
+          lineNumber: 94
         },
         __self: this
-      }, function (createProduct, _ref) {
-        var loading = _ref.loading,
-            error = _ref.error;
+      }, function (createProduct, _ref2) {
+        var loading = _ref2.loading,
+            error = _ref2.error;
         return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
           onSubmit:
           /*#__PURE__*/
           function () {
-            var _ref2 = _asyncToGenerator(
+            var _ref3 = _asyncToGenerator(
             /*#__PURE__*/
-            _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
+            _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
               var res;
-              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
                 while (1) {
-                  switch (_context.prev = _context.next) {
+                  switch (_context2.prev = _context2.next) {
                     case 0:
                       e.preventDefault();
-                      _context.next = 3;
+                      _context2.next = 3;
                       return createProduct();
 
                     case 3:
-                      res = _context.sent;
+                      res = _context2.sent;
                       console.log(res);
                       next_router__WEBPACK_IMPORTED_MODULE_8___default.a.push({
                         pathname: '/product',
@@ -573,78 +626,88 @@ function (_React$Component) {
 
                     case 6:
                     case "end":
-                      return _context.stop();
+                      return _context2.stop();
                   }
                 }
-              }, _callee, this);
+              }, _callee2, this);
             }));
 
-            return function (_x) {
-              return _ref2.apply(this, arguments);
+            return function (_x2) {
+              return _ref3.apply(this, arguments);
             };
           }(),
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 72
+            lineNumber: 96
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ErrorMessage__WEBPACK_IMPORTED_MODULE_7__["default"], {
           error: error,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 83
+            lineNumber: 107
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
           className: "product-details",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 84
+            lineNumber: 108
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
           className: "product-hero",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 85
+            lineNumber: 109
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+          htmlFor: "file",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 110
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
           id: "hero",
-          className: "fluid",
+          className: "fluid two-hundred",
           src: "/static/camera-icon.svg",
           alt: "Add Product Image" // onClick={this.handleSwapInput}
           // onChange={this.handleChange}
           ,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 86
+            lineNumber: 111
           },
           __self: this
-        }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+        })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
           type: "file",
           className: "live-input product-hero big-again fluid",
+          id: "file",
           accept: "image/png, image/jpeg",
-          name: "image" // style={{ display: 'none' }}
-          ,
-          onChange: _this2.handleChange,
+          name: "image",
+          style: {
+            display: 'none'
+          },
+          onChange: _this2.uploadFile,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 94
+            lineNumber: 120
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
           className: "product-info",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 103
+            lineNumber: 130
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
           className: "title-and-price",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 104
+            lineNumber: 131
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -657,7 +720,7 @@ function (_React$Component) {
           required: true,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 105
+            lineNumber: 132
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -670,14 +733,14 @@ function (_React$Component) {
           required: true,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 114
+            lineNumber: 141
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
           className: "product-description",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 124
+            lineNumber: 151
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -690,21 +753,21 @@ function (_React$Component) {
           value: _this2.state.description,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 125
+            lineNumber: 152
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
           className: "product-buttons",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 135
+            lineNumber: 162
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
           className: "inherit",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 136
+            lineNumber: 163
           },
           __self: this
         }, "Back"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
@@ -712,7 +775,7 @@ function (_React$Component) {
           type: "submit",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 137
+            lineNumber: 164
           },
           __self: this
         }, "Add")))));
@@ -860,51 +923,46 @@ function (_React$Component) {
           __self: this
         }, "Error: ", error.message));
         console.log(data);
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ProductsGrid, {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 45
-          },
-          __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_5___default.a, {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 46
-          },
-          __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 47
-          },
-          __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          src: "/static/add.svg",
-          alt: "Add a Product",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 48
-          },
-          __self: this
-        }))), data.products.map(function (product) {
-          ;
-          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "product",
+        return (// console.log('no error', data)
+          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ProductsGrid, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 53
+              lineNumber: 46
             },
             __self: this
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Product__WEBPACK_IMPORTED_MODULE_4__["default"], {
-            key: product.id,
-            product: product,
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_5___default.a, {
+            href: "/productAdd",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 54
+              lineNumber: 47
             },
             __self: this
-          }));
-        }));
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 48
+            },
+            __self: this
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+            src: "/static/add.svg",
+            alt: "Add a Product",
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 49
+            },
+            __self: this
+          }))), data.products.map(function (product) {
+            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Product__WEBPACK_IMPORTED_MODULE_4__["default"], {
+              product: product,
+              key: product.id,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 53
+              },
+              __self: this
+            });
+          }))
+        );
       });
     }
   }]);

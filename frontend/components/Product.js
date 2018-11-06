@@ -10,7 +10,7 @@ class Product extends React.Component {
   render() {
     const { product } = this.props
     return (
-      <ProductStyles>
+      <div className="product">
         <Link
           href={{
             pathname: '/product',
@@ -19,12 +19,16 @@ class Product extends React.Component {
         >
           <a>
             {product.image && (
-              <img className="image" src={product.image} alt={product.title} />
+              <img
+                className="image fluid"
+                src={product.image}
+                alt={product.title}
+              />
             )}
             <span className="price">{formatMoney(product.price)}</span>
           </a>
         </Link>
-      </ProductStyles>
+      </div>
     )
   }
 }

@@ -122,6 +122,10 @@ nav#sidebar {
 
 .fluid {
   max-width: 100%;
+  height: auto;
+}
+
+.two-hundred {
   height: 200px;
 }
 
@@ -313,8 +317,17 @@ button.action {
   margin: 0;
 }
 
+.product {
+  position: relative;
+}
+
 .price {
-  font-size: 30px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 18px;
+  color: #000;
+  font-family: Oswald;
 }
 
 .product-hero {

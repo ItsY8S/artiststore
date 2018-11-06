@@ -42,18 +42,16 @@ class Products extends React.Component {
             )
           console.log(data)
           return (
+            // console.log('no error', data)
             <ProductsGrid>
-              <Link>
+              <Link href="/productAdd">
                 <a>
                   <img src="/static/add.svg" alt="Add a Product" />
                 </a>
               </Link>
-
-              {data.products.map(product => {
-                ;<div className="product">
-                  <Product key={product.id} product={product} />
-                </div>
-              })}
+              {data.products.map(product => (
+                <Product product={product} key={product.id} />
+              ))}
             </ProductsGrid>
           )
         }}

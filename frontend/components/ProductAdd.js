@@ -65,6 +65,30 @@ class ProductAdd extends React.Component {
     }
   }
 
+  uploadFile = async e => {
+    console.log('uploading file')
+    const files = e.target.files
+    const data = new FormData()
+    data.append('file', files[0])
+    data.append('upload_preset', 'artiststore')
+
+    const res = await fetch(
+      'https://api.cloudinary.com/v1_1/y8s/image/upload',
+      {
+        method: 'POST',
+        body: data
+      }
+    )
+    const file = await res.json()
+    console.log(file)
+    this.setState({
+      image: file.secure_url
+    })
+    const hero = document.querySelector('#hero')
+    hero.src = this.state.image
+    hero.classList.remove('two-hundred')
+  }
+
   render() {
     return (
       <Mutation mutation={CREATE_PRODUCT_MUTATION} variables={this.state}>
@@ -83,21 +107,24 @@ class ProductAdd extends React.Component {
             <Error error={error} />
             <div className="product-details">
               <div className="product-hero">
-                <img
-                  id="hero"
-                  className="fluid"
-                  src="/static/camera-icon.svg"
-                  alt="Add Product Image"
-                  // onClick={this.handleSwapInput}
-                  // onChange={this.handleChange}
-                />
+                <label htmlFor="file">
+                  <img
+                    id="hero"
+                    className="fluid two-hundred"
+                    src="/static/camera-icon.svg"
+                    alt="Add Product Image"
+                    // onClick={this.handleSwapInput}
+                    // onChange={this.handleChange}
+                  />
+                </label>
                 <input
                   type="file"
                   className="live-input product-hero big-again fluid"
+                  id="file"
                   accept="image/png, image/jpeg"
                   name="image"
-                  // style={{ display: 'none' }}
-                  onChange={this.handleChange}
+                  style={{ display: 'none' }}
+                  onChange={this.uploadFile}
                 />
               </div>
               <div className="product-info">

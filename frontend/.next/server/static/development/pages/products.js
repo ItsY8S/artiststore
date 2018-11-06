@@ -151,7 +151,8 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       var product = this.props.product;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ProductStyles, {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "product",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 13
@@ -176,7 +177,7 @@ function (_React$Component) {
         },
         __self: this
       }, product.image && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "image",
+        className: "image fluid",
         src: product.image,
         alt: product.title,
         __source: {
@@ -188,7 +189,7 @@ function (_React$Component) {
         className: "price",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 24
+          lineNumber: 28
         },
         __self: this
       }, Object(_lib_formatMoney__WEBPACK_IMPORTED_MODULE_3__["default"])(product.price)))));
@@ -338,51 +339,46 @@ function (_React$Component) {
           __self: this
         }, "Error: ", error.message));
         console.log(data);
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ProductsGrid, {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 45
-          },
-          __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_5___default.a, {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 46
-          },
-          __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 47
-          },
-          __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          src: "/static/add.svg",
-          alt: "Add a Product",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 48
-          },
-          __self: this
-        }))), data.products.map(function (product) {
-          ;
-          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "product",
+        return (// console.log('no error', data)
+          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ProductsGrid, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 53
+              lineNumber: 46
             },
             __self: this
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Product__WEBPACK_IMPORTED_MODULE_4__["default"], {
-            key: product.id,
-            product: product,
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_5___default.a, {
+            href: "/productAdd",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 54
+              lineNumber: 47
             },
             __self: this
-          }));
-        }));
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 48
+            },
+            __self: this
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+            src: "/static/add.svg",
+            alt: "Add a Product",
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 49
+            },
+            __self: this
+          }))), data.products.map(function (product) {
+            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Product__WEBPACK_IMPORTED_MODULE_4__["default"], {
+              product: product,
+              key: product.id,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 53
+              },
+              __self: this
+            });
+          }))
+        );
       });
     }
   }]);
