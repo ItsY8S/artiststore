@@ -8,10 +8,21 @@ const Mutations = {
       },
       info
     )
-
     console.log(product)
-
     return product
+  },
+  updateProduct(parent, args, ctx, info) {
+    const updates = { ...args }
+    delete updates.id
+    return ctx.db.mutation.updateProduct(
+      {
+        data: updates,
+        where: {
+          id: args.id
+        }
+      },
+      info
+    )
   }
 }
 
