@@ -29,6 +29,8 @@ var _jsxFileName = "/Users/Griffin/Downloads/Artist Store/frontend/components/Pr
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -52,7 +54,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  mutation UPDATE_PRODUCT_MUTATION(\n    $title: String!\n    $price: Int!\n    $description: String!\n    $image: String\n  ) {\n    updateProduct(\n      title: $title\n      price: $price\n      description: $description\n      image: $image\n    ) {\n      id\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  mutation UPDATE_PRODUCT_MUTATION(\n    $id: ID!\n    $title: String\n    $price: Int\n    $description: String\n    $image: String\n  ) {\n    updateProduct(\n      id: $id\n      title: $title\n      price: $price\n      description: $description\n      image: $image\n    ) {\n      id\n      title\n      description\n      image\n    }\n  }\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -192,11 +194,43 @@ function (_React$Component) {
       };
     }());
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "updateProduct", function (e, updateProductMutation) {
-      e.preventDefault();
-      console.log('updating product');
-      console.log(_this.state);
-    });
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "updateProduct",
+    /*#__PURE__*/
+    function () {
+      var _ref2 = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e, updateProductMutation) {
+        var res;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                e.preventDefault();
+                console.log('updating product');
+                console.log(_this.state);
+                _context2.next = 5;
+                return updateProductMutation({
+                  variables: _objectSpread({
+                    id: _this.props.id
+                  }, _this.state)
+                });
+
+              case 5:
+                res = _context2.sent;
+                console.log('updated');
+
+              case 7:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      return function (_x2, _x3) {
+        return _ref2.apply(this, arguments);
+      };
+    }());
 
     return _this;
   }
@@ -213,23 +247,23 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 107
+          lineNumber: 119
         },
         __self: this
-      }, function (_ref2) {
-        var data = _ref2.data,
-            loading = _ref2.loading;
+      }, function (_ref3) {
+        var data = _ref3.data,
+            loading = _ref3.loading;
         if (loading) return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 109
+            lineNumber: 121
           },
           __self: this
         }, "Loading...");
         if (!data.product) return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 111
+            lineNumber: 123
           },
           __self: this
         }, "No product found for ID: ", _this2.props.id);
@@ -238,57 +272,57 @@ function (_React$Component) {
           variables: _this2.state,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 113
+            lineNumber: 125
           },
           __self: this
-        }, function (updateProduct, _ref3) {
-          var loading = _ref3.loading,
-              error = _ref3.error;
+        }, function (updateProduct, _ref4) {
+          var loading = _ref4.loading,
+              error = _ref4.error;
           return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
             onSubmit: function onSubmit(e) {
               return _this2.updateProduct(e, updateProduct);
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 115
+              lineNumber: 127
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ErrorMessage__WEBPACK_IMPORTED_MODULE_7__["default"], {
             error: error,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 116
+              lineNumber: 128
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
             className: "product-details",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 117
+              lineNumber: 129
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
             className: "product-hero",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 118
+              lineNumber: 130
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
             htmlFor: "file",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 119
+              lineNumber: 131
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
             id: "hero",
-            className: "fluid two-hundred",
-            src: "/static/camera-icon.svg",
+            className: "fluid",
+            src: data.product.image,
             alt: "Update Product Image",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 120
+              lineNumber: 132
             },
             __self: this
           })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -303,21 +337,21 @@ function (_React$Component) {
             onChange: _this2.uploadFile,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 127
+              lineNumber: 139
             },
             __self: this
           })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
             className: "product-info",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 137
+              lineNumber: 149
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
             className: "title-and-price",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 138
+              lineNumber: 150
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -330,7 +364,7 @@ function (_React$Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 139
+              lineNumber: 151
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -343,14 +377,14 @@ function (_React$Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 148
+              lineNumber: 160
             },
             __self: this
           })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
             className: "product-description",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 158
+              lineNumber: 170
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -363,32 +397,32 @@ function (_React$Component) {
             defaultValue: data.product.description,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 159
+              lineNumber: 171
             },
             __self: this
           })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
             className: "product-buttons",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 169
+              lineNumber: 181
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
             className: "inherit",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 170
+              lineNumber: 182
             },
             __self: this
-          }, "Back"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+          }, "Delete"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
             className: "inherit save",
             type: "submit",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 171
+              lineNumber: 183
             },
             __self: this
-          }, "Add")))));
+          }, "Save")))));
         });
       });
     }
@@ -403,4 +437,4 @@ function (_React$Component) {
 /***/ })
 
 })
-//# sourceMappingURL=product.js.72063bf4bbb61cc71c57.hot-update.js.map
+//# sourceMappingURL=product.js.ee8118180ec32a87fc01.hot-update.js.map

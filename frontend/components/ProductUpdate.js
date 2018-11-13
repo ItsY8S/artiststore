@@ -131,7 +131,7 @@ class ProductUpdate extends React.Component {
                       <label htmlFor="file">
                         <img
                           id="hero"
-                          className="fluid two-hundred"
+                          className="fluid"
                           src={data.product.image}
                           alt="Update Product Image"
                         />
@@ -179,7 +179,7 @@ class ProductUpdate extends React.Component {
                         />
                       </div>
                       <div className="product-buttons">
-                        <button className="inherit">Back</button>
+                        <button className="inherit delete">Delete</button>
                         <button className="inherit save" type="submit">
                           Save
                         </button>

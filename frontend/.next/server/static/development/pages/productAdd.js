@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -393,16 +393,16 @@ _defineProperty(Product, "propTypes", {
 
 /***/ }),
 
-/***/ "./components/ProductUpdate.js":
-/*!*************************************!*\
-  !*** ./components/ProductUpdate.js ***!
-  \*************************************/
-/*! exports provided: default, UPDATE_PRODUCT_MUTATION */
+/***/ "./components/ProductAdd.js":
+/*!**********************************!*\
+  !*** ./components/ProductAdd.js ***!
+  \**********************************/
+/*! exports provided: default, CREATE_PRODUCT_MUTATION */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE_PRODUCT_MUTATION", function() { return UPDATE_PRODUCT_MUTATION; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_PRODUCT_MUTATION", function() { return CREATE_PRODUCT_MUTATION; });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "@babel/runtime/regenerator");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
@@ -418,11 +418,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! next/router */ "next/router");
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_8__);
 
-var _jsxFileName = "/Users/Griffin/Downloads/Artist Store/frontend/components/ProductUpdate.js";
+var _jsxFileName = "/Users/Griffin/Downloads/Artist Store/frontend/components/ProductAdd.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -446,18 +444,8 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  mutation UPDATE_PRODUCT_MUTATION(\n    $id: ID!\n    $title: String\n    $price: Int\n    $description: String\n    $image: String\n  ) {\n    updateProduct(\n      id: $id\n      title: $title\n      price: $price\n      description: $description\n      image: $image\n    ) {\n      id\n      title\n      description\n      image\n    }\n  }\n"]);
-
-  _templateObject2 = function _templateObject2() {
-    return data;
-  };
-
-  return data;
-}
-
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  query SINGLE_ITEM_QUERY($id: ID!) {\n    product(where: { id: $id }) {\n      id\n      title\n      description\n      price\n      image\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  mutation CREATE_PRODUCT_MUTATION(\n    $title: String!\n    $price: Int!\n    $description: String!\n    $image: String\n  ) {\n    createProduct(\n      title: $title\n      price: $price\n      description: $description\n      image: $image\n    ) {\n      id\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -476,28 +464,32 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var SINGLE_ITEM_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_3___default()(_templateObject());
-var UPDATE_PRODUCT_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_3___default()(_templateObject2());
+var CREATE_PRODUCT_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_3___default()(_templateObject());
 
-var ProductUpdate =
+var ProductAdd =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(ProductUpdate, _React$Component);
+  _inherits(ProductAdd, _React$Component);
 
-  function ProductUpdate() {
+  function ProductAdd() {
     var _getPrototypeOf2;
 
     var _this;
 
-    _classCallCheck(this, ProductUpdate);
+    _classCallCheck(this, ProductAdd);
 
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(ProductUpdate)).call.apply(_getPrototypeOf2, [this].concat(args)));
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(ProductAdd)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {});
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
+      title: '',
+      price: 0,
+      description: '',
+      image: ''
+    });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleChange", function (e) {
       var _e$target = e.target,
@@ -587,244 +579,214 @@ function (_React$Component) {
       };
     }());
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "updateProduct",
-    /*#__PURE__*/
-    function () {
-      var _ref2 = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e, updateProductMutation) {
-        var res;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                e.preventDefault();
-                console.log('updating product');
-                console.log(_this.state);
-                _context2.next = 5;
-                return updateProductMutation({
-                  variables: _objectSpread({
-                    id: _this.props.id
-                  }, _this.state)
-                });
-
-              case 5:
-                res = _context2.sent;
-                console.log('updated');
-
-              case 7:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2, this);
-      }));
-
-      return function (_x2, _x3) {
-        return _ref2.apply(this, arguments);
-      };
-    }());
-
     return _this;
   }
 
-  _createClass(ProductUpdate, [{
+  _createClass(ProductAdd, [{
     key: "render",
     value: function render() {
       var _this2 = this;
 
-      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Query"], {
-        query: SINGLE_ITEM_QUERY,
-        variables: {
-          id: this.props.id
-        },
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Mutation"], {
+        mutation: CREATE_PRODUCT_MUTATION,
+        variables: this.state,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 119
+          lineNumber: 94
         },
         __self: this
-      }, function (_ref3) {
-        var data = _ref3.data,
-            loading = _ref3.loading;
-        if (loading) return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
+      }, function (createProduct, _ref2) {
+        var loading = _ref2.loading,
+            error = _ref2.error;
+        return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
+          onSubmit:
+          /*#__PURE__*/
+          function () {
+            var _ref3 = _asyncToGenerator(
+            /*#__PURE__*/
+            _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
+              var res;
+              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+                while (1) {
+                  switch (_context2.prev = _context2.next) {
+                    case 0:
+                      e.preventDefault();
+                      _context2.next = 3;
+                      return createProduct();
+
+                    case 3:
+                      res = _context2.sent;
+                      console.log(res);
+                      next_router__WEBPACK_IMPORTED_MODULE_8___default.a.push({
+                        pathname: '/product',
+                        query: {
+                          id: res.data.createProduct.id
+                        }
+                      });
+
+                    case 6:
+                    case "end":
+                      return _context2.stop();
+                  }
+                }
+              }, _callee2, this);
+            }));
+
+            return function (_x2) {
+              return _ref3.apply(this, arguments);
+            };
+          }(),
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 121
+            lineNumber: 96
           },
           __self: this
-        }, "Loading...");
-        if (!data.product) return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ErrorMessage__WEBPACK_IMPORTED_MODULE_7__["default"], {
+          error: error,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 123
+            lineNumber: 107
           },
           __self: this
-        }, "No product found for ID: ", _this2.props.id);
-        return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Mutation"], {
-          mutation: UPDATE_PRODUCT_MUTATION,
-          variables: _this2.state,
+        }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+          className: "product-details",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 125
+            lineNumber: 108
           },
           __self: this
-        }, function (updateProduct, _ref4) {
-          var loading = _ref4.loading,
-              error = _ref4.error;
-          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
-            onSubmit: function onSubmit(e) {
-              return _this2.updateProduct(e, updateProduct);
-            },
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 127
-            },
-            __self: this
-          }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ErrorMessage__WEBPACK_IMPORTED_MODULE_7__["default"], {
-            error: error,
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 128
-            },
-            __self: this
-          }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-            className: "product-details",
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 129
-            },
-            __self: this
-          }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-            className: "product-hero",
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 130
-            },
-            __self: this
-          }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
-            htmlFor: "file",
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 131
-            },
-            __self: this
-          }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
-            id: "hero",
-            className: "fluid",
-            src: data.product.image,
-            alt: "Update Product Image",
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 132
-            },
-            __self: this
-          })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
-            type: "file",
-            className: "live-input product-hero big-again fluid",
-            id: "file",
-            accept: "image/png, image/jpeg",
-            name: "image",
-            style: {
-              display: 'none'
-            },
-            onChange: _this2.uploadFile,
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 139
-            },
-            __self: this
-          })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-            className: "product-info",
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 149
-            },
-            __self: this
-          }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-            className: "title-and-price",
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 150
-            },
-            __self: this
-          }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
-            className: "product-title live-input",
-            type: "text",
-            name: "title",
-            placeholder: "Product Title",
-            defaultValue: data.product.title,
-            onChange: _this2.handleChange,
-            required: true,
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 151
-            },
-            __self: this
-          }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
-            className: "product-price live-input",
-            type: "number",
-            name: "price",
-            placeholder: "Price",
-            defaultValue: data.product.price,
-            onChange: _this2.handleChange,
-            required: true,
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 160
-            },
-            __self: this
-          })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-            className: "product-description",
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 170
-            },
-            __self: this
-          }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
-            className: "autoExpand live-input",
-            name: "description",
-            placeholder: "Product Description",
-            rows: "5",
-            type: "text",
-            onChange: _this2.handleChange,
-            defaultValue: data.product.description,
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 171
-            },
-            __self: this
-          })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-            className: "product-buttons",
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 181
-            },
-            __self: this
-          }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
-            className: "inherit delete",
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 182
-            },
-            __self: this
-          }, "Delete"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
-            className: "inherit save",
-            type: "submit",
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 183
-            },
-            __self: this
-          }, "Save")))));
-        });
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+          className: "product-hero",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 109
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+          htmlFor: "file",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 110
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
+          id: "hero",
+          className: "fluid two-hundred",
+          src: "/static/camera-icon.svg",
+          alt: "Add Product Image" // onClick={this.handleSwapInput}
+          // onChange={this.handleChange}
+          ,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 111
+          },
+          __self: this
+        })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+          type: "file",
+          className: "live-input product-hero big-again fluid",
+          id: "file",
+          accept: "image/png, image/jpeg",
+          name: "image",
+          style: {
+            display: 'none'
+          },
+          onChange: _this2.uploadFile,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 120
+          },
+          __self: this
+        })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+          className: "product-info",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 130
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+          className: "title-and-price",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 131
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+          className: "product-title live-input",
+          type: "text",
+          name: "title",
+          placeholder: "Product Title",
+          value: _this2.state.title,
+          onChange: _this2.handleChange,
+          required: true,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 132
+          },
+          __self: this
+        }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+          className: "product-price live-input",
+          type: "number",
+          name: "price",
+          placeholder: "Price",
+          value: _this2.state.price,
+          onChange: _this2.handleChange,
+          required: true,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 141
+          },
+          __self: this
+        })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+          className: "product-description",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 151
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
+          className: "autoExpand live-input",
+          name: "description",
+          placeholder: "Product Description",
+          rows: "5",
+          type: "text",
+          onChange: _this2.handleChange,
+          value: _this2.state.description,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 152
+          },
+          __self: this
+        })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+          className: "product-buttons",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 162
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+          className: "inherit",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 163
+          },
+          __self: this
+        }, "Back"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+          className: "inherit save",
+          type: "submit",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 164
+          },
+          __self: this
+        }, "Add")))));
       });
     }
   }]);
 
-  return ProductUpdate;
+  return ProductAdd;
 }(react__WEBPACK_IMPORTED_MODULE_1___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (ProductUpdate);
+/* harmony default export */ __webpack_exports__["default"] = (ProductAdd);
 
 
 /***/ }),
@@ -1082,10 +1044,10 @@ function setAttributes(element, attributes) {
 
 /***/ }),
 
-/***/ "./pages/product.js":
-/*!**************************!*\
-  !*** ./pages/product.js ***!
-  \**************************/
+/***/ "./pages/productAdd.js":
+/*!*****************************!*\
+  !*** ./pages/productAdd.js ***!
+  \*****************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1095,14 +1057,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_Title__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Title */ "./components/Title.js");
 /* harmony import */ var _components_Products__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Products */ "./components/Products.js");
-/* harmony import */ var _components_ProductUpdate__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/ProductUpdate */ "./components/ProductUpdate.js");
-var _jsxFileName = "/Users/Griffin/Downloads/Artist Store/frontend/pages/product.js";
+/* harmony import */ var _components_ProductAdd__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/ProductAdd */ "./components/ProductAdd.js");
+var _jsxFileName = "/Users/Griffin/Downloads/Artist Store/frontend/pages/productAdd.js";
 
 
 
 
 
-var productUpdate = function productUpdate(props) {
+var productAdd = function productAdd(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
@@ -1110,14 +1072,13 @@ var productUpdate = function productUpdate(props) {
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Title__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    title: "Update Product",
+    title: "Add Product",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 8
     },
     __self: this
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_ProductUpdate__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    id: props.query.id,
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_ProductAdd__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 9
@@ -1126,18 +1087,18 @@ var productUpdate = function productUpdate(props) {
   }));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (productUpdate);
+/* harmony default export */ __webpack_exports__["default"] = (productAdd);
 
 /***/ }),
 
-/***/ 3:
-/*!********************************!*\
-  !*** multi ./pages/product.js ***!
-  \********************************/
+/***/ 5:
+/*!***********************************!*\
+  !*** multi ./pages/productAdd.js ***!
+  \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! ./pages/product.js */"./pages/product.js");
+module.exports = __webpack_require__(/*! ./pages/productAdd.js */"./pages/productAdd.js");
 
 
 /***/ }),
@@ -1242,4 +1203,4 @@ module.exports = require("styled-components");
 /***/ })
 
 /******/ });
-//# sourceMappingURL=product.js.map
+//# sourceMappingURL=productAdd.js.map
