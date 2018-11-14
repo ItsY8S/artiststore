@@ -14,9 +14,16 @@ type Mutation {
     price: Int
     image: String
   ): Product!
+  deleteProduct(id: ID!): Product
 }
 
 type Query {
-  products: [Product]!
+  products(
+    where: ProductWhereInput
+    orderBy: ProductOrderByInput
+    skip: Int
+    first: Int
+  ): [Product]!
   product(where: ProductWhereUniqueInput!): Product
+  productsConnection(where: ProductWhereInput): ProductConnection!
 }

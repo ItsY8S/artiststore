@@ -23,6 +23,11 @@ const Mutations = {
       },
       info
     )
+  },
+  async deleteProduct(parent, args, ctx, info) {
+    const where = { id: args.id }
+    const item = await ctx.db.query.product({ where }, `{ id title }`)
+    return ctx.db.mutation.deleteProduct({ where }, info)
   }
 }
 
