@@ -4,10 +4,12 @@ import gql from 'graphql-tag'
 import styled from 'styled-components'
 import Product from './Product'
 import Link from 'next/link'
+import Pagination from './Pagination'
+import { perPage } from '../config'
 
 const ALL_PRODUCTS_QUERY = gql`
-  query ALL_PRODUCTS_QUERY {
-    products {
+  query ALL_PRODUCTS_QUERY($skip: Int = 0, $first: Int = ${perPage}) {
+    products(first: $first, skip: $skip, orderBy: createdAt_DESC) {
       id
       title
       price
@@ -26,7 +28,13 @@ const ProductsGrid = styled.div`
 class Products extends React.Component {
   render() {
     return (
-      <Query query={ALL_PRODUCTS_QUERY}>
+      <Query
+        query={ALL_PRODUCTS_QUERY}
+        variables={{
+          skip: this.props.page * perPage - perPage
+        }}
+        fetchPolicy="network-only"
+      >
         {({ data, error, loading }) => {
           if (loading) return <p>Loading...</p>
           if (error)
@@ -42,17 +50,19 @@ class Products extends React.Component {
             )
           console.log(data)
           return (
-            // console.log('no error', data)
-            <ProductsGrid>
-              <Link href="/productAdd">
-                <a>
-                  <img src="/static/add.svg" alt="Add a Product" />
-                </a>
-              </Link>
-              {data.products.map(product => (
-                <Product product={product} key={product.id} />
-              ))}
-            </ProductsGrid>
+            <>
+              <ProductsGrid>
+                <Link href="/productAdd">
+                  <a>
+                    <img src="/static/add.svg" alt="Add a Product" />
+                  </a>
+                </Link>
+                {data.products.map(product => (
+                  <Product product={product} key={product.id} />
+                ))}
+              </ProductsGrid>
+              <Pagination page={this.props.page} />
+            </>
           )
         }}
       </Query>

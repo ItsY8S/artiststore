@@ -6,6 +6,7 @@ import Meta from './Meta'
 import setAttributes from '../lib/setAttributes'
 import Error from './ErrorMessage'
 import Router from 'next/router'
+import DeleteProduct from './DeleteProduct'
 
 const SINGLE_ITEM_QUERY = gql`
   query SINGLE_ITEM_QUERY($id: ID!) {
@@ -179,7 +180,9 @@ class ProductUpdate extends React.Component {
                         />
                       </div>
                       <div className="product-buttons">
-                        <button className="inherit delete">Delete</button>
+                        <DeleteProduct id={data.product.id}>
+                          Delete
+                        </DeleteProduct>
                         <button className="inherit save" type="submit">
                           Save
                         </button>

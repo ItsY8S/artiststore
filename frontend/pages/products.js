@@ -5,7 +5,7 @@ const products = props => {
   return (
     <div>
       <Title title="Products" />
-      <Products />
+      <Products page={parseFloat(props.query.page) || 1} />
     </div>
   )
 }

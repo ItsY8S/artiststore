@@ -99,8 +99,8 @@ class ProductAdd extends React.Component {
               const res = await createProduct()
               console.log(res)
               Router.push({
-                pathname: '/product',
-                query: { id: res.data.createProduct.id }
+                pathname: '/products'
+                // query: { id: res.data.createProduct.id }
               })
             }}
           >

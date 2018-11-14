@@ -1,5 +1,145 @@
 ((window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/product.js"],{
 
+/***/ "./components/DeleteProduct.js":
+/*!*************************************!*\
+  !*** ./components/DeleteProduct.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/react-apollo.browser.umd.js");
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/router */ "./node_modules/next/router.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _Products__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Products */ "./components/Products.js");
+var _jsxFileName = "/Users/Griffin/Downloads/Artist Store/frontend/components/DeleteProduct.js";
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  mutation DELETE_PRODUCT_MUTATION($id: ID!) {\n    deleteProduct(id: $id) {\n      id\n    }\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+
+
+var DELETE_PRODUCT_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject());
+
+var DeleteProduct =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(DeleteProduct, _React$Component);
+
+  function DeleteProduct() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, DeleteProduct);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(DeleteProduct)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "update", function (cache, payload) {
+      var data = cache.readQuery({
+        query: _Products__WEBPACK_IMPORTED_MODULE_4__["ALL_PRODUCTS_QUERY"]
+      });
+      console.log(data);
+      data.products = data.products.filter(function (product) {
+        return product.id !== payload.data.deleteProduct.id;
+      });
+      cache.writeQuery({
+        query: _Products__WEBPACK_IMPORTED_MODULE_4__["ALL_PRODUCTS_QUERY"],
+        data: data
+      });
+    });
+
+    return _this;
+  }
+
+  _createClass(DeleteProduct, [{
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Mutation"], {
+        mutation: DELETE_PRODUCT_MUTATION,
+        variables: {
+          id: this.props.id
+        },
+        update: this.update,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 27
+        },
+        __self: this
+      }, function (deleteProduct, _ref) {
+        var error = _ref.error;
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: function onClick() {
+            if (confirm('Are you sure you want to delete this product?')) {
+              deleteProduct();
+            }
+
+            next_router__WEBPACK_IMPORTED_MODULE_3___default.a.push({
+              pathname: '/products'
+            });
+          },
+          className: "inherit delete",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 33
+          },
+          __self: this
+        }, _this2.props.children);
+      });
+    }
+  }]);
+
+  return DeleteProduct;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (DeleteProduct);
+
+/***/ }),
+
 /***/ "./components/ErrorMessage.js":
 /*!************************************!*\
   !*** ./components/ErrorMessage.js ***!
@@ -185,6 +325,143 @@ var Meta = function Meta() {
 
 /***/ }),
 
+/***/ "./components/Pagination.js":
+/*!**********************************!*\
+  !*** ./components/Pagination.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/react-apollo.browser.umd.js");
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../config */ "./config.js");
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! next/head */ "./node_modules/next/head.js");
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_5__);
+var _jsxFileName = "/Users/Griffin/Downloads/Artist Store/frontend/components/Pagination.js";
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  query PAGINATION_QUERY {\n    productsConnection {\n      aggregate {\n        count\n      }\n    }\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+
+
+
+var PAGINATION_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject());
+
+var Pagination = function Pagination(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_3__["Query"], {
+    query: PAGINATION_QUERY,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20
+    },
+    __self: this
+  }, function (_ref) {
+    var data = _ref.data,
+        loading = _ref.loading,
+        error = _ref.error;
+    if (loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 22
+      },
+      __self: this
+    }, "Loading...");
+    var count = data.productsConnection.aggregate.count;
+    var pages = Math.ceil(count / _config__WEBPACK_IMPORTED_MODULE_4__["perPage"]);
+    var page = props.page;
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_head__WEBPACK_IMPORTED_MODULE_5___default.a, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 28
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 29
+      },
+      __self: this
+    }, "Artist Store \u2014 Page ", page, " of ", pages)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "pagination",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 34
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      prefetch: true,
+      href: {
+        pathname: 'products',
+        query: {
+          page: page - 1
+        }
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 35
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      "aria-disabled": page <= 1,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 42
+      },
+      __self: this
+    }, "\u2190 Previous")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 44
+      },
+      __self: this
+    }, "Page ", page, " of ", pages), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      prefetch: true,
+      href: {
+        pathname: 'products',
+        query: {
+          page: page + 1
+        }
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 47
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      "aria-disabled": page >= pages,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 54
+      },
+      __self: this
+    }, "Next \u2192"))));
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Pagination);
+
+/***/ }),
+
 /***/ "./components/Product.js":
 /*!*******************************!*\
   !*** ./components/Product.js ***!
@@ -323,6 +600,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ErrorMessage__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ErrorMessage */ "./components/ErrorMessage.js");
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! next/router */ "./node_modules/next/router.js");
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _DeleteProduct__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./DeleteProduct */ "./components/DeleteProduct.js");
 
 var _jsxFileName = "/Users/Griffin/Downloads/Artist Store/frontend/components/ProductUpdate.js";
 
@@ -373,6 +651,7 @@ function _templateObject() {
 }
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
 
 
 
@@ -546,7 +825,7 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 119
+          lineNumber: 120
         },
         __self: this
       }, function (_ref3) {
@@ -555,14 +834,14 @@ function (_React$Component) {
         if (loading) return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 121
+            lineNumber: 122
           },
           __self: this
         }, "Loading...");
         if (!data.product) return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 123
+            lineNumber: 124
           },
           __self: this
         }, "No product found for ID: ", _this2.props.id);
@@ -571,7 +850,7 @@ function (_React$Component) {
           variables: _this2.state,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 125
+            lineNumber: 126
           },
           __self: this
         }, function (updateProduct, _ref4) {
@@ -583,35 +862,35 @@ function (_React$Component) {
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 127
+              lineNumber: 128
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ErrorMessage__WEBPACK_IMPORTED_MODULE_7__["default"], {
             error: error,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 128
+              lineNumber: 129
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
             className: "product-details",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 129
+              lineNumber: 130
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
             className: "product-hero",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 130
+              lineNumber: 131
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
             htmlFor: "file",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 131
+              lineNumber: 132
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
@@ -621,7 +900,7 @@ function (_React$Component) {
             alt: "Update Product Image",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 132
+              lineNumber: 133
             },
             __self: this
           })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -636,21 +915,21 @@ function (_React$Component) {
             onChange: _this2.uploadFile,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 139
+              lineNumber: 140
             },
             __self: this
           })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
             className: "product-info",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 149
+              lineNumber: 150
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
             className: "title-and-price",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 150
+              lineNumber: 151
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -663,7 +942,7 @@ function (_React$Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 151
+              lineNumber: 152
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -676,14 +955,14 @@ function (_React$Component) {
             required: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 160
+              lineNumber: 161
             },
             __self: this
           })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
             className: "product-description",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 170
+              lineNumber: 171
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -696,21 +975,21 @@ function (_React$Component) {
             defaultValue: data.product.description,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 171
+              lineNumber: 172
             },
             __self: this
           })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
             className: "product-buttons",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 181
+              lineNumber: 182
             },
             __self: this
-          }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
-            className: "inherit delete",
+          }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_DeleteProduct__WEBPACK_IMPORTED_MODULE_9__["default"], {
+            id: data.product.id,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 182
+              lineNumber: 183
             },
             __self: this
           }, "Delete"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
@@ -718,7 +997,7 @@ function (_React$Component) {
             type: "submit",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 183
+              lineNumber: 186
             },
             __self: this
           }, "Save")))));
@@ -755,6 +1034,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Product__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Product */ "./components/Product.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _Pagination__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Pagination */ "./components/Pagination.js");
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../config */ "./config.js");
 var _jsxFileName = "/Users/Griffin/Downloads/Artist Store/frontend/components/Products.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -776,7 +1057,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  query ALL_PRODUCTS_QUERY {\n    products {\n      id\n      title\n      price\n      description\n      image\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  query ALL_PRODUCTS_QUERY($skip: Int = 0, $first: Int = ", ") {\n    products(first: $first, skip: $skip, orderBy: createdAt_DESC) {\n      id\n      title\n      price\n      description\n      image\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -793,7 +1074,9 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var ALL_PRODUCTS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject());
+
+
+var ALL_PRODUCTS_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject(), _config__WEBPACK_IMPORTED_MODULE_7__["perPage"]);
 var ProductsGrid = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withConfig({
   displayName: "Products__ProductsGrid",
   componentId: "sc-9nbhf4-0"
@@ -813,11 +1096,17 @@ function (_React$Component) {
   _createClass(Products, [{
     key: "render",
     value: function render() {
+      var _this = this;
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Query"], {
         query: ALL_PRODUCTS_QUERY,
+        variables: {
+          skip: this.props.page * _config__WEBPACK_IMPORTED_MODULE_7__["perPage"] - _config__WEBPACK_IMPORTED_MODULE_7__["perPage"]
+        },
+        fetchPolicy: "network-only",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 29
+          lineNumber: 31
         },
         __self: this
       }, function (_ref) {
@@ -827,27 +1116,27 @@ function (_React$Component) {
         if (loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 31
+            lineNumber: 39
           },
           __self: this
         }, "Loading...");
         if (error) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ProductsGrid, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 34
+            lineNumber: 42
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_5___default.a, {
           href: "/productAdd",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 35
+            lineNumber: 43
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 36
+            lineNumber: 44
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -855,57 +1144,62 @@ function (_React$Component) {
           alt: "Add a Product",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 37
+            lineNumber: 45
           },
           __self: this
         }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 40
+            lineNumber: 48
           },
           __self: this
         }, "Error: ", error.message));
         console.log(data);
-        return (// console.log('no error', data)
-          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ProductsGrid, {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ProductsGrid, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 54
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_5___default.a, {
+          href: "/productAdd",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 55
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 56
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: "/static/add.svg",
+          alt: "Add a Product",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 57
+          },
+          __self: this
+        }))), data.products.map(function (product) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Product__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            product: product,
+            key: product.id,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 46
+              lineNumber: 61
             },
             __self: this
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_5___default.a, {
-            href: "/productAdd",
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 47
-            },
-            __self: this
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 48
-            },
-            __self: this
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-            src: "/static/add.svg",
-            alt: "Add a Product",
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 49
-            },
-            __self: this
-          }))), data.products.map(function (product) {
-            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Product__WEBPACK_IMPORTED_MODULE_4__["default"], {
-              product: product,
-              key: product.id,
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 53
-              },
-              __self: this
-            });
-          }))
-        );
+          });
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Pagination__WEBPACK_IMPORTED_MODULE_6__["default"], {
+          page: _this.props.page,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 64
+          },
+          __self: this
+        }));
       });
     }
   }]);
@@ -944,6 +1238,22 @@ var Title = function Title(props) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Title);
+
+/***/ }),
+
+/***/ "./config.js":
+/*!*******************!*\
+  !*** ./config.js ***!
+  \*******************/
+/*! exports provided: endpoint, perPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "endpoint", function() { return endpoint; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "perPage", function() { return perPage; });
+var endpoint = "http://localhost:4444";
+var perPage = 7;
 
 /***/ }),
 
@@ -26743,7 +27053,7 @@ var productUpdate = function productUpdate(props) {
 
 /***/ }),
 
-/***/ 3:
+/***/ 8:
 /*!********************************!*\
   !*** multi ./pages/product.js ***!
   \********************************/
@@ -26768,5 +27078,5 @@ module.exports = dll_10edf27d814a728d21af;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]));;
+},[[8,"static/runtime/webpack.js"]]]));;
 //# sourceMappingURL=product.js.map
