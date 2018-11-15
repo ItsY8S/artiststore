@@ -27,4 +27,5 @@ type Query {
   ): [Product]!
   product(where: ProductWhereUniqueInput!): Product
   productsConnection(where: ProductWhereInput): ProductConnection!
+  me: User
 }
