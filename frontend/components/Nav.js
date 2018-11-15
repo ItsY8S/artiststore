@@ -2,6 +2,7 @@ import Link from 'next/link'
 import NavStyles from './styles/NavStyles'
 import Router from 'next/router'
 import NProgress from 'nprogress'
+import User from './User'
 
 Router.onRouteChangeStart = () => {
   NProgress.start()
@@ -16,6 +17,13 @@ Router.onRouteChangeError = () => {
 const Nav = () => {
   return (
     <NavStyles id="sidebar">
+      <User>
+        {({ data: { me } }) => {
+          console.log(me)
+          if (me) return <p>{me.name}</p>
+          return null
+        }}
+      </User>
       <img id="profile-picture" src="/static/profile.jpg" alt="Store Image" />
       <ul>
         <li id="selected">
