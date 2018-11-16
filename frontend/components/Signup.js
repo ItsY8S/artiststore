@@ -2,6 +2,8 @@ import React from 'react'
 import { Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
 import Error from './ErrorMessage'
+import Link from 'next/link'
+import { CURRENT_USER_QUERY } from './User'
 
 const SIGNUP_MUTATION = gql`
   mutation SIGNUP_MUTATION(
@@ -30,7 +32,11 @@ class Signup extends React.Component {
 
   render() {
     return (
-      <Mutation mutation={SIGNUP_MUTATION} variables={this.state}>
+      <Mutation
+        mutation={SIGNUP_MUTATION}
+        variables={this.state}
+        refetchQueries={[{ query: CURRENT_USER_QUERY }]}
+      >
         {(signup, { error, loading }) => {
           return (
             <>
@@ -89,11 +95,14 @@ class Signup extends React.Component {
                   />
                   <label htmlFor="password">Password</label>
                 </div>
-                <button className="gradient btn" type="submit" value="Log In">
+                <button className="gradient btn" type="submit">
                   Sign Up
                 </button>
                 <p className="mt-25">
-                  Have an account? &nbsp;<a href="/login">Login</a>
+                  Have an account? &nbsp;
+                  <Link href="/signin">
+                    <a>Sign In</a>
+                  </Link>
                 </p>
               </form>
             </>

@@ -1,11 +1,7 @@
 import Signup from '../components/Signup'
 
 const signup = props => {
-  return (
-    <div>
-      <Signup />
-    </div>
-  )
+  return <Signup />
 }
 
 export default signup
