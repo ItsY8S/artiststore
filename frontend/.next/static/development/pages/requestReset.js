@@ -151,23 +151,23 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 var REQUEST_RESET_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_3___default()(_templateObject());
 
-var Signin =
+var RequestReset =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(Signin, _React$Component);
+  _inherits(RequestReset, _React$Component);
 
-  function Signin() {
+  function RequestReset() {
     var _getPrototypeOf2;
 
     var _this;
 
-    _classCallCheck(this, Signin);
+    _classCallCheck(this, RequestReset);
 
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Signin)).call.apply(_getPrototypeOf2, [this].concat(args)));
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(RequestReset)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
       email: ''
@@ -180,7 +180,7 @@ function (_React$Component) {
     return _this;
   }
 
-  _createClass(Signin, [{
+  _createClass(RequestReset, [{
     key: "render",
     value: function render() {
       var _this2 = this;
@@ -324,10 +324,10 @@ function (_React$Component) {
     }
   }]);
 
-  return Signin;
+  return RequestReset;
 }(react__WEBPACK_IMPORTED_MODULE_1___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (Signin);
+/* harmony default export */ __webpack_exports__["default"] = (RequestReset);
 
 /***/ }),
 
@@ -25523,7 +25523,7 @@ var requestReset = function requestReset(props) {
 
 /***/ }),
 
-/***/ 3:
+/***/ 5:
 /*!*************************************!*\
   !*** multi ./pages/requestReset.js ***!
   \*************************************/
@@ -25548,5 +25548,5 @@ module.exports = dll_10edf27d814a728d21af;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]));;
+},[[5,"static/runtime/webpack.js"]]]));;
 //# sourceMappingURL=requestReset.js.map

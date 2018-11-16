@@ -12,7 +12,7 @@ const REQUEST_RESET_MUTATION = gql`
   }
 `
 
-class Signin extends React.Component {
+class RequestReset extends React.Component {
   state = {
     email: ''
   }
@@ -76,4 +76,4 @@ class Signin extends React.Component {
   }
 }
 
-export default Signin
+export default RequestReset
