@@ -6,9 +6,18 @@ const { transport, styledEmail } = require('../mail')
 
 const Mutations = {
   async createProduct(parent, args, ctx, info) {
+    if (!ctx.request.userId) {
+      throw new Error('You must be signed in to do that.')
+    }
+
     const product = await ctx.db.mutation.createProduct(
       {
         data: {
+          user: {
+            connect: {
+              id: ctx.request.userId
+            }
+          },
           ...args
         }
       },
