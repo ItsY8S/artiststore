@@ -193,11 +193,33 @@ table {
   font-family: Oswald;
 }
 table thead {
-  font-size: 20px;
-  font-weight: bold;
+  /* font-size: 20px; */
+  /* font-weight: bold; */
 }
 table tbody tr {
-  font-size: 18px;
+  /* font-size: 18px; */
+}
+
+table.permissions tbody tr td {
+  text-align: center;
+}
+
+tbody tr td {
+  padding: 12px 15px;
+}
+
+td label {
+  margin-bottom: 0px;
+  text-align: center;
+}
+
+td label input {
+  margin: 1rem;
+}
+
+tbody tr td label {
+  display: block;
+  padding: 12px 15px;
 }
 
 .grid {

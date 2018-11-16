@@ -35,7 +35,6 @@ class ProductAdd extends React.Component {
 
   handleChange = e => {
     const { name, type, value } = e.target
-    // console.log(e)
     const val = type === 'number' ? parseFloat(value) : value
     this.setState({ [name]: val })
   }
@@ -85,8 +84,10 @@ class ProductAdd extends React.Component {
       image: file.secure_url
     })
     const hero = document.querySelector('#hero')
-    hero.src = this.state.image
-    hero.classList.remove('two-hundred')
+    if (this.state.image !== '') {
+      hero.src = this.state.image
+      hero.classList.remove('two-hundred')
+    }
   }
 
   render() {

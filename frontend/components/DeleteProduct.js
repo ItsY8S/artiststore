@@ -33,7 +33,9 @@ class DeleteProduct extends React.Component {
           <button
             onClick={() => {
               if (confirm('Are you sure you want to delete this product?')) {
-                deleteProduct()
+                deleteProduct().catch(err =>
+                  alert("You don't have permission to delete this product.")
+                )
               }
               Router.push({
                 pathname: '/products'

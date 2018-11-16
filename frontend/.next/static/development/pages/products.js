@@ -26246,7 +26246,7 @@ var products = function products(props) {
 
 /***/ }),
 
-/***/ 3:
+/***/ 5:
 /*!*********************************!*\
   !*** multi ./pages/products.js ***!
   \*********************************/
@@ -26271,5 +26271,5 @@ module.exports = dll_10edf27d814a728d21af;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]));;
+},[[5,"static/runtime/webpack.js"]]]));;
 //# sourceMappingURL=products.js.map

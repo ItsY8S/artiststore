@@ -3,6 +3,7 @@ import { Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
 import Error from './ErrorMessage'
 import Link from 'next/link'
+import Router from 'next/router'
 import { CURRENT_USER_QUERY } from './User'
 
 const SIGNIN_MUTATION = gql`
@@ -48,6 +49,9 @@ class Signin extends React.Component {
                     name: '',
                     email: '',
                     password: ''
+                  })
+                  Router.push({
+                    pathname: '/'
                   })
                 }}
               >

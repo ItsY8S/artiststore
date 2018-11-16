@@ -133,7 +133,7 @@ class ProductUpdate extends React.Component {
                         <img
                           id="hero"
                           className="fluid"
-                          src={data.product.image}
+                          src={data.product.image || '/static/camera-icon.svg'}
                           alt="Update Product Image"
                         />
                       </label>
