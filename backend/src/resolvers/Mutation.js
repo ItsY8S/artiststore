@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken')
 const { randomBytes } = require('crypto')
 const { promisify } = require('util')
 const { transport, styledEmail } = require('../mail')
+const { hasPermission } = require('../utils')
 
 const Mutations = {
   async createProduct(parent, args, ctx, info) {
@@ -41,7 +42,18 @@ const Mutations = {
   },
   async deleteProduct(parent, args, ctx, info) {
     const where = { id: args.id }
-    const item = await ctx.db.query.product({ where }, `{ id title }`)
+    const product = await ctx.db.query.product(
+      { where },
+      `{ id title user { id } }`
+    )
+    const ownsProduct = product.user.id === ctx.request.userId
+    const hasPermissions = ctx.request.user.permissions.some(permission =>
+      ['ADMIN', 'PRODUCTDELETE'].includes(permission)
+    )
+    if (!ownsProduct && !hasPermissions) {
+      throw new Error("You don't have permission to delete this product.")
+    }
+
     return ctx.db.mutation.deleteProduct({ where }, info)
   },
   async signup(parent, args, ctx, info) {
@@ -144,6 +156,34 @@ const Mutations = {
       maxAge: 1000 * 60 * 60 * 24 * 365
     })
     return updatedUser
+  },
+  async updatePermissions(parent, args, ctx, info) {
+    if (!ctx.request.userId) {
+      throw new Error('You must be signed in!')
+    }
+
+    const currentUser = await ctx.db.query.user(
+      {
+        where: { id: ctx.request.userId }
+      },
+      info
+    )
+
+    hasPermission(currentUser, ['ADMIN', 'PERMISSIONUPDATE'])
+
+    return ctx.db.mutation.updateUser(
+      {
+        data: {
+          permissions: {
+            set: args.permissions
+          }
+        },
+        where: {
+          id: args.userId
+        }
+      },
+      info
+    )
   }
 }
 
