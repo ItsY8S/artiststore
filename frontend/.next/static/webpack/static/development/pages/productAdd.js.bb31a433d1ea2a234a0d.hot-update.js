@@ -1,9 +1,50 @@
-webpackHotUpdate("static/development/pages/requestReset.js",{
+webpackHotUpdate("static/development/pages/productAdd.js",{
 
-/***/ "./components/RequestReset.js":
+/***/ "./components/PleaseSignIn.js":
 /*!************************************!*\
-  !*** ./components/RequestReset.js ***!
+  !*** ./components/PleaseSignIn.js ***!
   \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/react-apollo.browser.umd.js");
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./User */ "./components/User.js");
+/* harmony import */ var _Signin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Signin */ "./components/Signin.js");
+var _jsxFileName = "/Users/Griffin/Downloads/Artist Store/frontend/components/PleaseSignIn.js";
+
+
+
+
+
+var PleaseSignIn = function PleaseSignIn(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8
+    },
+    __self: this
+  }, "PleaseSignIn"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (PleaseSignIn);
+
+/***/ }),
+
+/***/ "./components/Signin.js":
+/*!******************************!*\
+  !*** ./components/Signin.js ***!
+  \******************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -20,8 +61,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ErrorMessage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ErrorMessage */ "./components/ErrorMessage.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./User */ "./components/User.js");
 
-var _jsxFileName = "/Users/Griffin/Downloads/Artist Store/frontend/components/RequestReset.js";
+var _jsxFileName = "/Users/Griffin/Downloads/Artist Store/frontend/components/Signin.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -48,7 +90,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  mutation REQUEST_RESET_MUTATION($email: String!) {\n    requestReset(email: $email) {\n      message\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  mutation SIGNIN_MUTATION($email: String!, $password: String!) {\n    signin(email: $email, password: $password) {\n      id\n      name\n      email\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -64,28 +106,31 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var REQUEST_RESET_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_3___default()(_templateObject());
 
-var RequestReset =
+var SIGNIN_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_3___default()(_templateObject());
+
+var Signin =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(RequestReset, _React$Component);
+  _inherits(Signin, _React$Component);
 
-  function RequestReset() {
+  function Signin() {
     var _getPrototypeOf2;
 
     var _this;
 
-    _classCallCheck(this, RequestReset);
+    _classCallCheck(this, Signin);
 
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(RequestReset)).call.apply(_getPrototypeOf2, [this].concat(args)));
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Signin)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
-      email: ''
+      name: '',
+      email: '',
+      password: ''
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "saveToState", function (e) {
@@ -95,37 +140,33 @@ function (_React$Component) {
     return _this;
   }
 
-  _createClass(RequestReset, [{
+  _createClass(Signin, [{
     key: "render",
     value: function render() {
       var _this2 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Mutation"], {
-        mutation: REQUEST_RESET_MUTATION,
+        mutation: SIGNIN_MUTATION,
         variables: this.state,
+        refetchQueries: [{
+          query: _User__WEBPACK_IMPORTED_MODULE_6__["CURRENT_USER_QUERY"]
+        }],
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 26
+          lineNumber: 31
         },
         __self: this
-      }, function (reset, _ref) {
+      }, function (signin, _ref) {
         var error = _ref.error,
-            loading = _ref.loading,
-            called = _ref.called;
+            loading = _ref.loading;
         return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ErrorMessage__WEBPACK_IMPORTED_MODULE_4__["default"], {
           error: error,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 30
+            lineNumber: 39
           },
           __self: this
-        }), !error && !loading && called && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 32
-          },
-          __self: this
-        }, "Success! Check your email for a reset link."), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
+        }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
           className: "card",
           method: "POST",
           autoComplete: "off",
@@ -141,11 +182,13 @@ function (_React$Component) {
                     case 0:
                       e.preventDefault();
                       _context.next = 3;
-                      return reset();
+                      return signin();
 
                     case 3:
                       _this2.setState({
-                        email: ''
+                        name: '',
+                        email: '',
+                        password: ''
                       });
 
                     case 4:
@@ -162,28 +205,28 @@ function (_React$Component) {
           }(),
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 34
+            lineNumber: 40
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h2", {
           className: "mb-50",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 46
+            lineNumber: 54
           },
           __self: this
-        }, "Password Reset"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        }, "Artist Store"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
           className: "white",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 47
+            lineNumber: 55
           },
           __self: this
         }, "\xA0"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
           className: "input-group full-width",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 48
+            lineNumber: 56
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -195,7 +238,7 @@ function (_React$Component) {
           onChange: _this2.saveToState,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 49
+            lineNumber: 57
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
@@ -203,48 +246,167 @@ function (_React$Component) {
           htmlFor: "email",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 57
+            lineNumber: 65
           },
           __self: this
-        }, "Email")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+        }, "Email")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+          className: "input-group full-width",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 69
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+          className: "full-width",
+          type: "password",
+          name: "password",
+          required: "required",
+          value: _this2.state.password,
+          onChange: _this2.saveToState,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 70
+          },
+          __self: this
+        }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+          htmlFor: "password",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 78
+          },
+          __self: this
+        }, "Password")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
           className: "gradient btn",
           type: "submit",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 61
+            lineNumber: 80
           },
           __self: this
-        }, "Request Reset"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
-          className: "mt-25",
+        }, "Sign In"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+          className: "mt-25 flex-apart",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 64
+            lineNumber: 83
           },
           __self: this
-        }, "Have an account? \xA0", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_5___default.a, {
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 84
+          },
+          __self: this
+        }, "Need an account? \xA0", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_5___default.a, {
           href: "/signup",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 66
+            lineNumber: 86
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("a", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 67
+            lineNumber: 87
           },
           __self: this
-        }, "Sign Up")))));
+        }, "Sign Up"))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 90
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_5___default.a, {
+          href: "/requestReset",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 91
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("a", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 92
+          },
+          __self: this
+        }, "Forgot Password?"))))));
       });
     }
   }]);
 
-  return RequestReset;
+  return Signin;
 }(react__WEBPACK_IMPORTED_MODULE_1___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (RequestReset);
+/* harmony default export */ __webpack_exports__["default"] = (Signin);
+
+/***/ }),
+
+/***/ "./pages/productAdd.js":
+/*!*****************************!*\
+  !*** ./pages/productAdd.js ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Title__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Title */ "./components/Title.js");
+/* harmony import */ var _components_Products__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Products */ "./components/Products.js");
+/* harmony import */ var _components_ProductAdd__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/ProductAdd */ "./components/ProductAdd.js");
+/* harmony import */ var _components_PleaseSignIn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/PleaseSignIn */ "./components/PleaseSignIn.js");
+var _jsxFileName = "/Users/Griffin/Downloads/Artist Store/frontend/pages/productAdd.js";
+
+
+
+
+
+
+var productAdd = function productAdd(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_PleaseSignIn__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Title__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    title: "Add Product",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9
+    },
+    __self: this
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_ProductAdd__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10
+    },
+    __self: this
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (productAdd);
+    (function (Component, route) {
+      if(!Component) return
+      if (false) {}
+      module.hot.accept()
+      Component.__route = route
+
+      if (module.hot.status() === 'idle') return
+
+      var components = next.router.components
+      for (var r in components) {
+        if (!components.hasOwnProperty(r)) continue
+
+        if (components[r].Component.__route === route) {
+          next.router.update(r, Component)
+        }
+      }
+    })(typeof __webpack_exports__ !== 'undefined' ? __webpack_exports__.default : (module.exports.default || module.exports), "/productAdd")
+  
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node_modules/webpack/buildin/harmony-module.js */ "./node_modules/webpack/buildin/harmony-module.js")(module)))
 
 /***/ })
 
 })
-//# sourceMappingURL=requestReset.js.ca5bf26faba86ee9cbf1.hot-update.js.map
+//# sourceMappingURL=productAdd.js.bb31a433d1ea2a234a0d.hot-update.js.map

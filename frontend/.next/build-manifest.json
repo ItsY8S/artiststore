@@ -11,11 +11,11 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/requestReset": [
+    "/products": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/resetPassword": [
+    "/productAdd": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ]
