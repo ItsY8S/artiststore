@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
 const NavStyles = styled.nav`
+  z-index: 5;
+
   #sidebar {
     grid-area: sidebar;
     position: fixed;

@@ -6,6 +6,8 @@ import gql from 'graphql-tag'
 import { Mutation } from 'react-apollo'
 import User from './User'
 import { CURRENT_USER_QUERY } from './User'
+import Cart from './Cart'
+import { TOGGLE_CART_MUTATION } from './Cart'
 
 Router.onRouteChangeStart = () => {
   NProgress.start()
@@ -30,6 +32,7 @@ const Nav = () => {
     <User>
       {({ data }) => (
         <NavStyles id="sidebar">
+          <Cart />
           <img
             id="profile-picture"
             src="/static/profile.jpg"
@@ -101,6 +104,16 @@ const Nav = () => {
                   <Link href="/about">
                     <a>About</a>
                   </Link>
+                </li>
+
+                <li>
+                  <Mutation mutation={TOGGLE_CART_MUTATION}>
+                    {toggleCart => (
+                      <button className="nav-button" onClick={toggleCart}>
+                        Cart
+                      </button>
+                    )}
+                  </Mutation>
                 </li>
 
                 <li>
