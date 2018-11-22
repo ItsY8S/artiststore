@@ -59,8 +59,8 @@ Connecting with artists on Instagram will hit a specific market that those websi
 
 ## 1.5. User Stories & Functional Requirements (Features)
 
-> - As an `artist`, I want to `sign up with my email`, so that `I don't have to remember more login credentials`.
->   - The system will `allow user to create an account & authenticate with Google OAuth`.
+> - As an `artist`, I want to `sign up with my email`, so that `I don't have to remember another username`.
+>   - The system will `allow user to create an account & authenticate with their email address and password`.
 
 > - As an `artist`, I want to `display my concerts`, so that `fans know when I'm performing`.
 >   - The system will `allow user to perform CRUD based operations on concerts`.
