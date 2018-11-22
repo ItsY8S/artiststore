@@ -6,9 +6,7 @@ This application is for artists who want to sell merchandise without the hassle 
 
 ### Getting Up & Running
 
-1. Run `mongod` from the terminal
-2. Download Artist Store from the master branch.
-3. Open your preferred terminal and `cd` into the folder
-4. Run `npm i` from terminal
-5. Run `npm run start` from terminal
-6. Navigate to `localhost:3000` in your browser
+1. Download Artist Store from the master branch.
+2. Open your preferred terminal and `cd` into the both the `frontend` and `backend` folder
+3. Run `npm run dev` from each folder
+4. Navigate to `localhost:7777` in your browser
