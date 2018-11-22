@@ -59,8 +59,6 @@ Connecting with artists on Instagram will hit a specific market that those websi
 
 ## 1.5. User Stories & Functional Requirements (Features)
 
-> - As a `Persona`, I want to `need`, so that `purpose`.
-
 > - As an `artist`, I want to `sign up with my email`, so that `I don't have to remember more login credentials`.
 >   - The system will `allow user to create an account & authenticate with Google OAuth`.
 
@@ -102,21 +100,22 @@ or
 
 ## 2.2. Programming Languages
 
-- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-- [CSS - Sass](https://sass-lang.com/guide)
+### Front End
+- [React.js](https://reactjs.org/docs/getting-started.html)
+- [Apollo](https://www.apollographql.com/docs/apollo-server/)
+
+### Back End
+- [GraphQL](https://github.com/graphql/graphiql)
+- [Prisma](https://www.prisma.io/docs)
 
 ## 2.3. Technical Requirements
 
-MERN stack
-
-- [MongoDB](https://www.mongodb.com/) with [Mongoose](https://www.npmjs.com/package/mongoose) (for database)
-- [Express](http://expressjs.com/) (Node.js framework / also using [Express Generator](https://expressjs.com/en/starter/generator.html))
-- [React.js](https://reactjs.org/docs/getting-started.html)
 - [Node.js](https://nodejs.org/)
+- [Express](http://expressjs.com/) (Node.js framework / also using [Express Generator](https://expressjs.com/en/starter/generator.html))
+- [Cloudinary](https://cloudinary.com/)
+
 
 ## 2.4. Integrations
 
 - [Skeleton](https://getskeleton.com/) as CSS library
-- [Multer](https://github.com/expressjs/multer), [UUID](https://github.com/kelektiv/node-uuid), & [Jimp](https://github.com/oliver-moran/jimp) for image uploading & resizing
-- [MongoDB](https://github.com/mongodb/mongo) with [Mongoose](https://github.com/Automattic/mongoose)
 - [Express Generator](https://expressjs.com/en/starter/generator.html)
