@@ -15,6 +15,7 @@ type User {
   resetToken: String
   resetTokenExpiry: String
   permissions: [Permission]
+  cart: [CartProduct!]!
 }
 
 type Product {
@@ -23,5 +24,12 @@ type Product {
   description: String!
   image: String
   price: Int!
+  user: User!
+}
+
+type CartProduct {
+  id: ID! @unique
+  quantity: Int! @default(value: 1)
+  product: Product!
   user: User!
 }
