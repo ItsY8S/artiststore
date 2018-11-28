@@ -1,11 +1,13 @@
-import Link from 'next/link'
+import Title from '../components/Title'
+import Products from '../components/Products'
 
-const Products = props => {
+const products = props => {
   return (
     <div>
-      <h1>Products</h1>
+      <Title title="Products" />
+      <Products page={parseFloat(props.query.page) || 1} />
     </div>
   )
 }
 
-export default Products
+export default products

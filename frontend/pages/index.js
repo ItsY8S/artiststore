@@ -1,9 +1,9 @@
-import Link from 'next/link'
+import Title from '../components/Title'
 
 const Dashboard = props => {
   return (
     <div>
-      <h1>Dashboard</h1>
+      <Title title="Dashboard" />
     </div>
   )
 }

@@ -1,3 +1,28 @@
-const Query = {};
+const { forwardTo } = require('prisma-binding')
+const { hasPermission } = require('../utils')
 
-module.exports = Query;
+const Query = {
+  products: forwardTo('db'),
+  product: forwardTo('db'),
+  productsConnection: forwardTo('db'),
+  me(parent, args, ctx, info) {
+    if (!ctx.request.userId) {
+      return null
+    }
+    return ctx.db.query.user(
+      {
+        where: { id: ctx.request.userId }
+      },
+      info
+    )
+  },
+  async users(parent, args, ctx, info) {
+    if (!ctx.request.userId) {
+      throw new Error('You must be signed in.')
+    }
+    hasPermission(ctx.request.user, ['ADMIN', 'PERMISSIONUPDATE'])
+    return ctx.db.query.users({}, info)
+  }
+}
+
+module.exports = Query
