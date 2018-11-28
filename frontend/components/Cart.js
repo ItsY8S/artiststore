@@ -45,6 +45,7 @@ const Cart = () => (
                 />
                 <h6 className="cart-item-title">Red Hoodie</h6>
                 <span className="cart-item-price">$77</span>
+                <span className="cart-item-remove">&times;</span>
               </div>
             </section>
 

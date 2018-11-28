@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
 import formatMoney from '../lib/formatMoney'
+import User from './User'
 
 class Product extends React.Component {
   static propTypes = {

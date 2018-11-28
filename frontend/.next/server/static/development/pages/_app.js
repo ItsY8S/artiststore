@@ -253,24 +253,31 @@ var Cart = function Cart() {
           lineNumber: 47
         },
         __self: this
-      }, "$77"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
+      }, "$77"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "cart-item-remove",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 51
+          lineNumber: 48
+        },
+        __self: this
+      }, "\xD7"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 52
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
         className: "cart-total",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 52
+          lineNumber: 53
         },
         __self: this
       }, "$219.42"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "checkout",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 53
+          lineNumber: 54
         },
         __self: this
       }, "Checkout")));
@@ -1008,7 +1015,7 @@ function createClient(_ref) {
         }
       },
       defaults: {
-        cartOpen: true
+        cartOpen: false
       }
     }
   });

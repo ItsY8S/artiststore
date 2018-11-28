@@ -725,9 +725,13 @@ aside {
 
 .cart-item {
   width: auto;
-  display: flex;
-  justify-content: space-around;
-  margin: 25px 0px;
+  display: grid;
+  grid-template-columns: 75px 1fr 50px 25px;
+}
+
+.cart-item-remove {
+  font-size: 28px;
+  color: black;
 }
 
 .cart-item-title {
@@ -738,6 +742,7 @@ aside {
 .cart-item-price {
   font-size: 1.8rem;
   font-weight: 500;
+  margin-right: 35px;
 }
 
 .cart-title {
@@ -771,6 +776,7 @@ aside {
   font-size: 24px;
   text-transform: capitalize;
   font-weight: 500;
+  margin-bottom: 0;
 }
 
 .nav-button:hover,
@@ -800,6 +806,10 @@ aside {
 a[aria-disabled='true'] {
   color: grey;
   pointer-events: none;
+}
+
+.fw-500 {
+  font-weight: 500;
 }
 
 @media (min-width: 0px) and (max-width: 600px) {

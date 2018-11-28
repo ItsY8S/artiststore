@@ -7,6 +7,9 @@ import setAttributes from '../lib/setAttributes'
 import Error from './ErrorMessage'
 import Router from 'next/router'
 import DeleteProduct from './DeleteProduct'
+import AddToCart from './AddToCart'
+
+// QUERY A USER HERE AND CONDITIONALLY RENDER COMPONENT???
 
 const SINGLE_ITEM_QUERY = gql`
   query SINGLE_ITEM_QUERY($id: ID!) {
@@ -183,6 +186,7 @@ class ProductUpdate extends React.Component {
                         <DeleteProduct id={data.product.id}>
                           Delete
                         </DeleteProduct>
+                        <AddToCart id={data.product.id} />
                         <button className="inherit save" type="submit">
                           Save
                         </button>
