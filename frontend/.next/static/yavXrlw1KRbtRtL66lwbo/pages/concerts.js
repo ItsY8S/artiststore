@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[23],{298:function(e,n,t){__NEXT_REGISTER_PAGE("/concerts",function(){return e.exports=t(299),{page:e.exports.default}})},299:function(e,n,t){"use strict";t.r(n);var r=t(0),c=t.n(r),o=t(18);n.default=function(e){return c.a.createElement("div",null,c.a.createElement(o.a,{title:"Concerts"}))}}},[[298,1,0]]]);
