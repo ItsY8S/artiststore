@@ -217,7 +217,7 @@ const Mutations = {
             connect: { id: userId }
           },
           product: {
-            connect: { id: userId }
+            connect: { id: args.id }
           }
         }
       },
