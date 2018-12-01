@@ -72,6 +72,16 @@ const Nav = () => {
                 </li>
 
                 <li>
+                  <Mutation mutation={TOGGLE_CART_MUTATION}>
+                    {toggleCart => (
+                      <button className="nav-button" onClick={toggleCart}>
+                        Cart
+                      </button>
+                    )}
+                  </Mutation>
+                </li>
+
+                <li>
                   <Mutation
                     mutation={SIGNOUT_MUTATION}
                     refetchQueries={[{ query: CURRENT_USER_QUERY }]}

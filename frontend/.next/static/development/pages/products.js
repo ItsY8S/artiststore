@@ -341,8 +341,8 @@ function (_React$Component) {
         query: ALL_PRODUCTS_QUERY,
         variables: {
           skip: this.props.page * _config__WEBPACK_IMPORTED_MODULE_7__["perPage"] - _config__WEBPACK_IMPORTED_MODULE_7__["perPage"]
-        },
-        fetchPolicy: "network-only",
+        } // fetchPolicy="network-only"
+        ,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 31
