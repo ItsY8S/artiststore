@@ -43,25 +43,6 @@ const Cart = () => (
                         key={cartProduct.id}
                       />
                     ))}
-
-                    {/* <div className="cart-item">
-                      <img
-                        src="/static/images/products/beige-hoodie.jpg"
-                        alt="Beige Hoodie"
-                      />
-                      <h6 className="cart-item-title">Beige Hoodie</h6>
-                      <span className="cart-item-price">$77</span>
-                    </div>
-
-                    <div className="cart-item">
-                      <img
-                        src="/static/images/products/red-hoodie.jpg"
-                        alt="Red Hoodie"
-                      />
-                      <h6 className="cart-item-title">Red Hoodie</h6>
-                      <span className="cart-item-price">$77</span>
-                      <span className="cart-item-remove">&times;</span>
-                    </div> */}
                   </section>
 
                   <footer>

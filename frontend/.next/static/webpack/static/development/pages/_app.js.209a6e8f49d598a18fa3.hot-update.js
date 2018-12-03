@@ -19,6 +19,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _styles_CartStyles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./styles/CartStyles */ "./components/styles/CartStyles.js");
 /* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./User */ "./components/User.js");
+/* harmony import */ var _CartProduct__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./CartProduct */ "./components/CartProduct.js");
+/* harmony import */ var _lib_calcTotalPrice__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../lib/calcTotalPrice */ "./lib/calcTotalPrice.js");
+/* harmony import */ var _lib_formatMoney__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../lib/formatMoney */ "./lib/formatMoney.js");
 var _jsxFileName = "/Users/Griffin/Downloads/Artist Store/frontend/components/Cart.js";
 
 
@@ -48,6 +51,9 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
+
+
+
 var LOCAL_STATE_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject());
 var TOGGLE_CART_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject2());
 
@@ -55,7 +61,7 @@ var Cart = function Cart() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_User__WEBPACK_IMPORTED_MODULE_4__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19
+      lineNumber: 22
     },
     __self: this
   }, function (_ref) {
@@ -66,7 +72,7 @@ var Cart = function Cart() {
       mutation: TOGGLE_CART_MUTATION,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 24
+        lineNumber: 27
       },
       __self: this
     }, function (toggleCart) {
@@ -74,7 +80,7 @@ var Cart = function Cart() {
         query: LOCAL_STATE_QUERY,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 26
+          lineNumber: 29
         },
         __self: this
       }, function (_ref2) {
@@ -83,20 +89,20 @@ var Cart = function Cart() {
           open: data.cartOpen,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 28
+            lineNumber: 31
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 29
+            lineNumber: 32
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
           className: "cart-title",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 30
+            lineNumber: 33
           },
           __self: this
         }, me.name, "'s Cart"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -104,106 +110,44 @@ var Cart = function Cart() {
           onClick: toggleCart,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 31
+            lineNumber: 34
           },
           __self: this
         }, "\xD7")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
           className: "cart-items",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 36
+            lineNumber: 39
           },
           __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "cart-item",
+        }, me.cart.map(function (cartProduct) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CartProduct__WEBPACK_IMPORTED_MODULE_5__["default"], {
+            cartProduct: cartProduct,
+            key: cartProduct.id,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 41
+            },
+            __self: this
+          });
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 37
-          },
-          __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          src: "/static/images/products/beige-hoodie.jpg",
-          alt: "Beige Hoodie",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 38
-          },
-          __self: this
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", {
-          className: "cart-item-title",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 42
-          },
-          __self: this
-        }, "Beige Hoodie"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-          className: "cart-item-price",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 43
-          },
-          __self: this
-        }, "$77")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "cart-item",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 46
-          },
-          __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          src: "/static/images/products/red-hoodie.jpg",
-          alt: "Red Hoodie",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 47
-          },
-          __self: this
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", {
-          className: "cart-item-title",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 51
-          },
-          __self: this
-        }, "Red Hoodie"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-          className: "cart-item-price",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 52
-          },
-          __self: this
-        }, "$77"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-          className: "cart-item-remove",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 53
-          },
-          __self: this
-        }, "\xD7"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 57
+            lineNumber: 48
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
           className: "cart-total",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 58
+            lineNumber: 49
           },
           __self: this
-        }, "$219.42 |", ' ', react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-          className: "cart-count",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 60
-          },
-          __self: this
-        }, me.cart.length, " products")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        }, Object(_lib_formatMoney__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_lib_calcTotalPrice__WEBPACK_IMPORTED_MODULE_6__["default"])(me.cart))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "checkout",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 64
+            lineNumber: 55
           },
           __self: this
         }, "Checkout")));
@@ -218,4 +162,4 @@ var Cart = function Cart() {
 /***/ })
 
 })
-//# sourceMappingURL=_app.js.f2df1d909ffef0d57295.hot-update.js.map
+//# sourceMappingURL=_app.js.209a6e8f49d598a18fa3.hot-update.js.map

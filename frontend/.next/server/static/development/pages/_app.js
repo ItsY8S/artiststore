@@ -226,21 +226,21 @@ var Cart = function Cart() {
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 67
+            lineNumber: 48
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
           className: "cart-total",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 68
+            lineNumber: 49
           },
           __self: this
         }, Object(_lib_formatMoney__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_lib_calcTotalPrice__WEBPACK_IMPORTED_MODULE_6__["default"])(me.cart))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "checkout",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 74
+            lineNumber: 55
           },
           __self: this
         }, "Checkout")));
