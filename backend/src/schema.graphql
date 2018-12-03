@@ -30,6 +30,7 @@ type Mutation {
   ): User!
   updatePermissions(permissions: [Permission], userId: ID!): User
   addToCart(id: ID!): CartProduct
+  removeFromCart(id: ID!): CartProduct
 }
 
 type Query {
