@@ -1,6 +1,7 @@
 import React from 'react'
 import formatMoney from '../lib/formatMoney'
 import PropTypes from 'prop-types'
+import RemoveFromCart from './RemoveFromCart'
 
 const CartProduct = ({ cartProduct }) => {
   return (
@@ -13,7 +14,7 @@ const CartProduct = ({ cartProduct }) => {
           <em>{cartProduct.quantity}</em>
         </span>
       </div>
-      <span className="cart-item-remove">&times;</span>
+      <RemoveFromCart id={cartProduct.id} />
     </div>
   )
 }

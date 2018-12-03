@@ -724,6 +724,7 @@ aside {
 }
 
 .cart-item-remove {
+  all: unset;
   font-size: 28px;
   color: black;
   cursor: pointer;
