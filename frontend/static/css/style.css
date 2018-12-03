@@ -723,15 +723,10 @@ aside {
   font-size: 30px;
 }
 
-.cart-item {
-  width: auto;
-  display: grid;
-  grid-template-columns: 75px 1fr 50px 25px;
-}
-
 .cart-item-remove {
   font-size: 28px;
   color: black;
+  cursor: pointer;
 }
 
 .cart-item-title {
@@ -759,8 +754,11 @@ aside {
 .cart-item h6 {
   width: -webkit-fill-available;
   text-align: left;
-  padding-left: 10px;
   margin-bottom: 0;
+}
+
+.cart-item-count {
+  font-size: 1.4rem;
 }
 
 .cart-item td {

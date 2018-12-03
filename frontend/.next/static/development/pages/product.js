@@ -15,6 +15,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./User */ "./components/User.js");
 var _jsxFileName = "/Users/Griffin/Downloads/Artist Store/frontend/components/AddToCart.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -50,6 +51,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
+
 var ADD_TO_CART_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject());
 
 var AddToCart =
@@ -72,20 +74,25 @@ function (_React$Component) {
         variables: {
           id: id
         },
+        refetchQueries: [{
+          query: _User__WEBPACK_IMPORTED_MODULE_3__["CURRENT_USER_QUERY"]
+        }],
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 18
+          lineNumber: 19
         },
         __self: this
-      }, function (addToCart) {
+      }, function (addToCart, _ref) {
+        var loading = _ref.loading;
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           onClick: addToCart,
+          disabled: loading,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 24
+            lineNumber: 27
           },
           __self: this
-        }, "Add To Cart \uD83D\uDED2");
+        }, "Add", loading && 'ing', " To Cart \uD83D\uDED2");
       });
     }
   }]);
@@ -1376,7 +1383,7 @@ var _jsxFileName = "/Users/Griffin/Downloads/Artist Store/frontend/components/Us
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  query {\n    me {\n      id\n      email\n      name\n      permissions\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  query {\n    me {\n      id\n      email\n      name\n      permissions\n      cart {\n        id\n        quantity\n        product {\n          id\n          title\n          description\n          image\n          price\n        }\n      }\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -1397,7 +1404,7 @@ var User = function User(props) {
     query: CURRENT_USER_QUERY,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17
+      lineNumber: 28
     },
     __self: this
   }), function (payload) {
@@ -27219,7 +27226,7 @@ var productUpdate = function productUpdate(props) {
 
 /***/ }),
 
-/***/ 7:
+/***/ 3:
 /*!********************************!*\
   !*** multi ./pages/product.js ***!
   \********************************/
@@ -27244,5 +27251,5 @@ module.exports = dll_10edf27d814a728d21af;
 
 /***/ })
 
-},[[7,"static/runtime/webpack.js"]]]));;
+},[[3,"static/runtime/webpack.js"]]]));;
 //# sourceMappingURL=product.js.map
