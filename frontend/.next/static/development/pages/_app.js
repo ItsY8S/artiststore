@@ -255,11 +255,32 @@ var _jsxFileName = "/Users/Griffin/Downloads/Artist Store/frontend/components/Ca
 
 var CartProduct = function CartProduct(_ref) {
   var cartProduct = _ref.cartProduct;
+  if (!cartProduct.product) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "cart-item-unavailable",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10
+    },
+    __self: this
+  }, "This product is no longer available."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_RemoveFromCart__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    id: cartProduct.id,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11
+    },
+    __self: this
+  }));
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "cart-item",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8
+      lineNumber: 15
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -267,41 +288,41 @@ var CartProduct = function CartProduct(_ref) {
     alt: cartProduct.product.title,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9
+      lineNumber: 16
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "cart-item-details",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 17
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", {
     className: "cart-item-title",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 18
     },
     __self: this
   }, cartProduct.product.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "cart-item-price",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12
+      lineNumber: 19
     },
     __self: this
   }, Object(_lib_formatMoney__WEBPACK_IMPORTED_MODULE_1__["default"])(cartProduct.product.price), " \xD7", ' ', react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("em", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 21
     },
     __self: this
   }, cartProduct.quantity))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_RemoveFromCart__WEBPACK_IMPORTED_MODULE_3__["default"], {
     id: cartProduct.id,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17
+      lineNumber: 24
     },
     __self: this
   }));
@@ -1122,7 +1143,7 @@ __webpack_require__.r(__webpack_exports__);
 var CartStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].aside.withConfig({
   displayName: "CartStyles",
   componentId: "sc-1tzec6h-0"
-})(["padding:25px;position:relative;background:white;position:fixed;height:100%;top:0;right:0;width:40%;min-width:400px;bottom:0;transform:translateX(100%);transition:all 0.3s;box-shadow:0 0 10px 3px rgba(0,0,0,0.2);box-sizing:border-box;z-index:5;display:grid;grid-template-rows:auto 1fr auto;", ";header{display:flex;justify-content:space-between;width:100%;margin-bottom:50px;}.cart-title{font-weight:500;margin-bottom:0px;}.cart-close{font-size:42px;margin:0px;border:none;padding:0px;}.cart-item{width:auto;display:grid;grid-template-columns:75px 1fr 25px;margin-bottom:25px;}.cart-item-details{margin-left:15px;}.cart-item img{width:75px;height:75px;object-fit:contain;}button.checkout{background:linear-gradient( to top right,#704ce5 0%,#4c66e6 50%,#4cb3e6 100% );border-image-slice:1;border-radius:10px;border-image-outset:0px;color:white;font-size:1.6rem;border:none;}footer{display:flex;justify-content:space-between;width:100%;}"], function (props) {
+})(["padding:25px;position:relative;background:white;position:fixed;height:100%;top:0;right:0;width:40%;min-width:400px;bottom:0;transform:translateX(100%);transition:all 0.3s;box-shadow:0 0 10px 3px rgba(0,0,0,0.2);box-sizing:border-box;z-index:5;display:grid;grid-template-rows:auto 1fr auto;", ";header{display:flex;justify-content:space-between;width:100%;margin-bottom:50px;}.cart-title{font-weight:500;margin-bottom:0px;}.cart-close{font-size:42px;margin:0px;border:none;padding:0px;}.cart-item{width:auto;display:grid;grid-template-columns:75px 1fr 25px;margin-bottom:25px;}.cart-item-unavailable{width:auto;display:grid;grid-template-columns:1fr 25px;margin-bottom:25px;}.cart-item-details{margin-left:15px;}.cart-item img{width:75px;height:75px;object-fit:contain;}button.checkout{background:linear-gradient( to top right,#704ce5 0%,#4c66e6 50%,#4cb3e6 100% );border-image-slice:1;border-radius:10px;border-image-outset:0px;color:white;font-size:1.6rem;border:none;}footer{display:flex;justify-content:space-between;width:100%;}"], function (props) {
   return props.open && "transform: translateX(0);";
 });
 /* harmony default export */ __webpack_exports__["default"] = (CartStyles);

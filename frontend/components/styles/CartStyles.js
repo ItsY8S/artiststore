@@ -46,6 +46,13 @@ const CartStyles = styled.aside`
     margin-bottom: 25px;
   }
 
+  .cart-item-unavailable {
+    width: auto;
+    display: grid;
+    grid-template-columns: 1fr 25px;
+    margin-bottom: 25px;
+  }
+
   .cart-item-details {
     margin-left: 15px;
   }
