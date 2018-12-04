@@ -30,6 +30,6 @@ type Product {
 type CartProduct {
   id: ID! @unique
   quantity: Int! @default(value: 1)
-  product: Product!
+  product: Product
   user: User!
 }

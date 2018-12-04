@@ -1,5 +1,5 @@
 # source: https://us1.prisma.sh/griffin-yates/artist-store/dev
-# timestamp: Wed Nov 21 2018 16:32:58 GMT-0500 (EST)
+# timestamp: Tue Dec 04 2018 15:23:11 GMT-0500 (EST)
 
 type AggregateCartProduct {
   count: Int!
@@ -21,7 +21,7 @@ type BatchPayload {
 type CartProduct implements Node {
   id: ID!
   quantity: Int!
-  product: Product!
+  product: Product
   user: User!
 }
 
@@ -37,7 +37,7 @@ type CartProductConnection {
 
 input CartProductCreateInput {
   quantity: Int
-  product: ProductCreateOneInput!
+  product: ProductCreateOneInput
   user: UserCreateOneWithoutCartInput!
 }
 
@@ -48,7 +48,7 @@ input CartProductCreateManyWithoutUserInput {
 
 input CartProductCreateWithoutUserInput {
   quantity: Int
-  product: ProductCreateOneInput!
+  product: ProductCreateOneInput
 }
 
 """An edge in a connection."""
@@ -190,7 +190,7 @@ input CartProductSubscriptionWhereInput {
 
 input CartProductUpdateInput {
   quantity: Int
-  product: ProductUpdateOneRequiredInput
+  product: ProductUpdateOneInput
   user: UserUpdateOneRequiredWithoutCartInput
 }
 
@@ -220,7 +220,7 @@ input CartProductUpdateManyWithWhereNestedInput {
 
 input CartProductUpdateWithoutUserDataInput {
   quantity: Int
-  product: ProductUpdateOneRequiredInput
+  product: ProductUpdateOneInput
 }
 
 input CartProductUpdateWithWhereUniqueWithoutUserInput {
@@ -504,9 +504,11 @@ input ProductUpdateManyMutationInput {
   price: Int
 }
 
-input ProductUpdateOneRequiredInput {
+input ProductUpdateOneInput {
   create: ProductCreateInput
   connect: ProductWhereUniqueInput
+  disconnect: Boolean
+  delete: Boolean
   update: ProductUpdateDataInput
   upsert: ProductUpsertNestedInput
 }
