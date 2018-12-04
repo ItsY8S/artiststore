@@ -85,7 +85,7 @@ function (_React$Component) {
       }, function (addToCart, _ref) {
         var loading = _ref.loading;
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          class: "addToCart",
+          className: "addToCart",
           onClick: addToCart,
           disabled: loading,
           __source: {
@@ -27227,7 +27227,7 @@ var productUpdate = function productUpdate(props) {
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!********************************!*\
   !*** multi ./pages/product.js ***!
   \********************************/
@@ -27252,5 +27252,5 @@ module.exports = dll_10edf27d814a728d21af;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]));;
+},[[4,"static/runtime/webpack.js"]]]));;
 //# sourceMappingURL=product.js.map

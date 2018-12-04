@@ -1,6 +1,7 @@
 import { Query, Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
 import CartStyles from './styles/CartStyles'
+import { adopt } from 'react-adopt'
 import User from './User'
 import CartProduct from './CartProduct'
 import calcTotalPrice from '../lib/calcTotalPrice'
@@ -18,50 +19,49 @@ const TOGGLE_CART_MUTATION = gql`
   }
 `
 
+// Simplify the cart
+const Composed = adopt({
+  user: ({ render }) => <User>{render}</User>,
+  toggleCart: ({ render }) => (
+    <Mutation mutation={TOGGLE_CART_MUTATION}>{render}</Mutation>
+  ),
+  localState: ({ render }) => <Query query={LOCAL_STATE_QUERY}>{render}</Query>
+})
+
 const Cart = () => (
-  <User>
-    {({ data: { me } }) => {
+  <Composed>
+    {({ user, toggleCart, localState }) => {
+      const me = user.data.me
       if (!me) return null
-      console.log('User here', me)
+      // console.log('User here', me)
       return (
-        <Mutation mutation={TOGGLE_CART_MUTATION}>
-          {toggleCart => (
-            <Query query={LOCAL_STATE_QUERY}>
-              {({ data }) => (
-                <CartStyles open={data.cartOpen}>
-                  <header>
-                    <h4 className="cart-title">{me.name}'s Cart</h4>
-                    <button className="cart-close" onClick={toggleCart}>
-                      &times;
-                    </button>
-                  </header>
+        <CartStyles open={localState.data.cartOpen}>
+          <header>
+            <h4 className="cart-title">{me.name}'s Cart</h4>
+            <button className="cart-close" onClick={toggleCart}>
+              &times;
+            </button>
+          </header>
 
-                  <section className="cart-items">
-                    {me.cart.map(cartProduct => (
-                      <CartProduct
-                        cartProduct={cartProduct}
-                        key={cartProduct.id}
-                      />
-                    ))}
-                  </section>
+          <section className="cart-items">
+            {me.cart.map(cartProduct => (
+              <CartProduct cartProduct={cartProduct} key={cartProduct.id} />
+            ))}
+          </section>
 
-                  <footer>
-                    <h4 className="cart-total">
-                      {formatMoney(calcTotalPrice(me.cart))}
-                      {/* <span className="cart-item-count">
+          <footer>
+            <h4 className="cart-total">
+              {formatMoney(calcTotalPrice(me.cart))}
+              {/* <span className="cart-item-count">
                         {me.cart.length} products
                       </span> */}
-                    </h4>
-                    <button className="checkout">Checkout</button>
-                  </footer>
-                </CartStyles>
-              )}
-            </Query>
-          )}
-        </Mutation>
+            </h4>
+            <button className="checkout">Checkout</button>
+          </footer>
+        </CartStyles>
       )
     }}
-  </User>
+  </Composed>
 )
 
 export default Cart

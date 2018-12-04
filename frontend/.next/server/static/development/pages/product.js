@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -178,7 +178,7 @@ function (_React$Component) {
       }, function (addToCart, _ref) {
         var loading = _ref.loading;
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          class: "addToCart",
+          className: "addToCart",
           onClick: addToCart,
           disabled: loading,
           __source: {
@@ -1614,7 +1614,7 @@ var productUpdate = function productUpdate(props) {
 
 /***/ }),
 
-/***/ 3:
+/***/ 5:
 /*!********************************!*\
   !*** multi ./pages/product.js ***!
   \********************************/
