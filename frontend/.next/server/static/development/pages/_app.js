@@ -254,6 +254,78 @@ var Cart = function Cart() {
 
 /***/ }),
 
+/***/ "./components/CartCount.js":
+/*!*********************************!*\
+  !*** ./components/CartCount.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "prop-types");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_transition_group__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-transition-group */ "react-transition-group");
+/* harmony import */ var react_transition_group__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_transition_group__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_3__);
+var _jsxFileName = "/Users/Griffin/Downloads/Artist Store/frontend/components/CartCount.js";
+
+
+
+
+var AnimationStyles = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.span.withConfig({
+  displayName: "CartCount__AnimationStyles",
+  componentId: "d5p5bt-0"
+})(["position:relative;top:-0.25rem;.count{display:block;position:relative;transition:all 0.4s;backface-visibility:hidden;}.count-enter{transform:scale(2) rotateX(0.5turn);}.count-enter-active{transform:rotateX(0);background-color:#cc4ce6;}.count-exit{top:0;position:absolute;transform:rotateX(0);background-color:#4c6de6;}.count-exit-active{transform:scale(2) rotateX(0.5turn);}"]);
+var Dot = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.div.withConfig({
+  displayName: "CartCount__Dot",
+  componentId: "d5p5bt-1"
+})(["background-color:#704ce5;display:block;color:white;border-radius:50%;padding:0.5rem;line-height:1.4rem;min-width:1.4rem;margin-left:1rem;vertical-align:middle;font-size:1.4rem;font-weight:700;font-feature-settings:'tnum';font-variant-numeric:tabular-nums;"]);
+
+var CartCount = function CartCount(_ref) {
+  var count = _ref.count;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(AnimationStyles, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 55
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_transition_group__WEBPACK_IMPORTED_MODULE_2__["TransitionGroup"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 56
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_transition_group__WEBPACK_IMPORTED_MODULE_2__["CSSTransition"], {
+    unmountOnExit: true,
+    className: "count",
+    classNames: "count",
+    key: count,
+    timeout: {
+      enter: 400,
+      exit: 400
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Dot, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 64
+    },
+    __self: this
+  }, count))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (CartCount);
+
+/***/ }),
+
 /***/ "./components/CartProduct.js":
 /*!***********************************!*\
   !*** ./components/CartProduct.js ***!
@@ -460,6 +532,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./User */ "./components/User.js");
 /* harmony import */ var _Cart__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Cart */ "./components/Cart.js");
+/* harmony import */ var _CartCount__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./CartCount */ "./components/CartCount.js");
 var _jsxFileName = "/Users/Griffin/Downloads/Artist Store/frontend/components/Nav.js";
 
 
@@ -474,6 +547,7 @@ function _templateObject() {
 }
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
 
 
 
@@ -504,7 +578,7 @@ var Nav = function Nav() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_User__WEBPACK_IMPORTED_MODULE_7__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 33
     },
     __self: this
   }, function (_ref) {
@@ -513,13 +587,13 @@ var Nav = function Nav() {
       id: "sidebar",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 34
+        lineNumber: 35
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Cart__WEBPACK_IMPORTED_MODULE_8__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 35
+        lineNumber: 36
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -528,122 +602,122 @@ var Nav = function Nav() {
       alt: "Store Image",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 36
+        lineNumber: 37
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 41
+        lineNumber: 42
       },
       __self: this
     }, data.me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       id: "selected",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 44
+        lineNumber: 45
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
       href: "/",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 45
+        lineNumber: 46
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 46
+        lineNumber: 47
       },
       __self: this
     }, "Dashboard"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 50
+        lineNumber: 51
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
       href: "/products",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 51
+        lineNumber: 52
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 52
+        lineNumber: 53
       },
       __self: this
     }, "Products"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 56
+        lineNumber: 57
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
       href: "/orders",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 57
+        lineNumber: 58
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 58
+        lineNumber: 59
       },
       __self: this
     }, "Orders"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 62
+        lineNumber: 63
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
       href: "/concerts",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 63
+        lineNumber: 64
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 64
+        lineNumber: 65
       },
       __self: this
     }, "Concerts"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 68
+        lineNumber: 69
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
       href: "/manage",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 69
+        lineNumber: 70
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 70
+        lineNumber: 71
       },
       __self: this
     }, "Manage"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 74
+        lineNumber: 75
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_6__["Mutation"], {
       mutation: _Cart__WEBPACK_IMPORTED_MODULE_8__["TOGGLE_CART_MUTATION"],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 75
+        lineNumber: 76
       },
       __self: this
     }, function (toggleCart) {
@@ -652,14 +726,23 @@ var Nav = function Nav() {
         onClick: toggleCart,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 77
+          lineNumber: 78
         },
         __self: this
-      }, "Cart");
+      }, "Cart", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CartCount__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        count: data.me.cart.reduce(function (tally, cartProduct) {
+          return tally + cartProduct.quantity;
+        }, 0),
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 80
+        },
+        __self: this
+      }));
     })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 84
+        lineNumber: 92
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_6__["Mutation"], {
@@ -669,7 +752,7 @@ var Nav = function Nav() {
       }],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 85
+        lineNumber: 93
       },
       __self: this
     }, function (signout) {
@@ -677,85 +760,85 @@ var Nav = function Nav() {
         href: "/signout",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 90
+          lineNumber: 98
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         onClick: signout,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 91
+          lineNumber: 99
         },
         __self: this
       }, "Sign Out"));
     }))), !data.me && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 101
+        lineNumber: 109
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
       href: "/products",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 102
+        lineNumber: 110
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 103
+        lineNumber: 111
       },
       __self: this
     }, "Products"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 107
+        lineNumber: 115
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
       href: "/concerts",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 108
+        lineNumber: 116
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 109
+        lineNumber: 117
       },
       __self: this
     }, "Concerts"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 113
+        lineNumber: 121
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
       href: "/about",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 114
+        lineNumber: 122
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 115
+        lineNumber: 123
       },
       __self: this
     }, "About"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 119
+        lineNumber: 127
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_6__["Mutation"], {
       mutation: _Cart__WEBPACK_IMPORTED_MODULE_8__["TOGGLE_CART_MUTATION"],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 120
+        lineNumber: 128
       },
       __self: this
     }, function (toggleCart) {
@@ -764,34 +847,34 @@ var Nav = function Nav() {
         onClick: toggleCart,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 122
+          lineNumber: 130
         },
         __self: this
       }, "Cart");
     })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 129
+        lineNumber: 137
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
       href: "/signin",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 130
+        lineNumber: 138
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 131
+        lineNumber: 139
       },
       __self: this
     }, "Sign In")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "divider",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 137
+        lineNumber: 145
       },
       __self: this
     })));
@@ -1573,6 +1656,17 @@ module.exports = require("react");
 /***/ (function(module, exports) {
 
 module.exports = require("react-apollo");
+
+/***/ }),
+
+/***/ "react-transition-group":
+/*!*****************************************!*\
+  !*** external "react-transition-group" ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-transition-group");
 
 /***/ }),
 

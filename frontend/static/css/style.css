@@ -719,6 +719,39 @@ aside {
   transform: translateX(-150%);
 } */
 
+/* div.cart-dot {
+  background-color: #704ce5;
+  color: white;
+  display: inline-block;
+  border-radius: 50%;
+  padding: 0.5rem;
+  line-height: 2rem;
+  min-width: 3rem;
+  margin-left: 1rem;
+  vertical-align: middle;
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-feature-settings: 'tnum';
+  font-variant-numeric: tabular-nums;
+} */
+
+/* Fix counter position in sidebar */
+button span div {
+  display: inline-block;
+}
+
+button.addToCart {
+  background-color: #9964ff;
+  color: white;
+  font-size: 16px;
+  border: none;
+}
+
+button.addToCart:hover {
+  color: white;
+  border: none;
+}
+
 .close-cart {
   font-size: 30px;
 }
