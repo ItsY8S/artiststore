@@ -6,6 +6,7 @@ import User from './User'
 import CartProduct from './CartProduct'
 import calcTotalPrice from '../lib/calcTotalPrice'
 import formatMoney from '../lib/formatMoney'
+import Stripe from './Stripe'
 
 const LOCAL_STATE_QUERY = gql`
   query {
@@ -56,7 +57,9 @@ const Cart = () => (
                         {me.cart.length} products
                       </span> */}
             </h4>
-            <button className="checkout">Checkout</button>
+            <Stripe>
+              <button className="checkout">Checkout</button>
+            </Stripe>
           </footer>
         </CartStyles>
       )
