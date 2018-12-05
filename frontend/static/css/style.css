@@ -239,7 +239,7 @@ tbody tr td label {
 }
 
 #search {
-  width: 200px;
+  max-width: 300px;
   justify-self: right;
   border-radius: 25px;
   font-size: 24px;
@@ -254,6 +254,9 @@ tbody tr td label {
 #search:focus {
   border-color: black;
   opacity: 1;
+}
+#search:focus-within {
+  /* border-radius: 25px 25px 0px 0px; */
 }
 
 .fixed {
@@ -842,6 +845,11 @@ a[aria-disabled='true'] {
 
 .fw-500 {
   font-weight: 500;
+}
+
+.search-flex {
+  display: flex;
+  justify-content: space-between;
 }
 
 @media (min-width: 0px) and (max-width: 600px) {
