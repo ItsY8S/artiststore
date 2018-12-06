@@ -31,6 +31,7 @@ type Mutation {
   updatePermissions(permissions: [Permission], userId: ID!): User
   addToCart(id: ID!): CartProduct
   removeFromCart(id: ID!): CartProduct
+  createOrder(token: String!): Order!
 }
 
 type Query {
