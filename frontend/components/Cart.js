@@ -57,9 +57,14 @@ const Cart = () => (
                         {me.cart.length} products
                       </span> */}
             </h4>
-            <Stripe>
-              <button className="checkout">Checkout</button>
-            </Stripe>
+
+            {me.cart.length && (
+              <Stripe>
+                <button disabled={!me.cart.length} className="checkout">
+                  Checkout
+                </button>
+              </Stripe>
+            )}
           </footer>
         </CartStyles>
       )

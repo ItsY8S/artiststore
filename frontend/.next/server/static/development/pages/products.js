@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -487,24 +487,23 @@ function (_React$Component) {
           },
           __self: this
         }, "Error: ", error.message));
-        console.log(data);
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ProductsGrid, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 54
+            lineNumber: 53
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_5___default.a, {
           href: "/productAdd",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 55
+            lineNumber: 54
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 56
+            lineNumber: 55
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -512,7 +511,7 @@ function (_React$Component) {
           alt: "Add a Product",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 57
+            lineNumber: 56
           },
           __self: this
         }))), data.products.map(function (product) {
@@ -521,7 +520,7 @@ function (_React$Component) {
             key: product.id,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 61
+              lineNumber: 60
             },
             __self: this
           });
@@ -529,7 +528,7 @@ function (_React$Component) {
           page: _this.props.page,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 64
+            lineNumber: 63
           },
           __self: this
         }));
@@ -1053,7 +1052,7 @@ var products = function products(props) {
 
 /***/ }),
 
-/***/ 5:
+/***/ 3:
 /*!*********************************!*\
   !*** multi ./pages/products.js ***!
   \*********************************/

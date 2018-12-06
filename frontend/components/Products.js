@@ -48,7 +48,6 @@ class Products extends React.Component {
                 <p>Error: {error.message}</p>
               </ProductsGrid>
             )
-          console.log(data)
           return (
             <>
               <ProductsGrid>
