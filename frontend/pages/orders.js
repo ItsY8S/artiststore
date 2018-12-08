@@ -1,11 +1,13 @@
 import Title from '../components/Title'
+import Orders from '../components/Orders'
 
-const Orders = props => {
+const orders = props => {
   return (
     <div>
       <Title title="Orders" />
+      <Orders />
     </div>
   )
 }
 
-export default Orders
+export default orders

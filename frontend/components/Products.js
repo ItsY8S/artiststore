@@ -33,7 +33,7 @@ class Products extends React.Component {
         variables={{
           skip: this.props.page * perPage - perPage
         }}
-        fetchPolicy="network-only"
+        // fetchPolicy="network-only"
       >
         {({ data, error, loading }) => {
           if (loading) return <p>Loading...</p>
@@ -48,7 +48,6 @@ class Products extends React.Component {
                 <p>Error: {error.message}</p>
               </ProductsGrid>
             )
-          console.log(data)
           return (
             <>
               <ProductsGrid>

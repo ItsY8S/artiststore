@@ -41,9 +41,20 @@ const CartStyles = styled.aside`
 
   .cart-item {
     width: auto;
-    display: flex;
-    justify-content: space-around;
-    margin: 35px 0px;
+    display: grid;
+    grid-template-columns: 75px 1fr 25px;
+    margin-bottom: 25px;
+  }
+
+  .cart-item-unavailable {
+    width: auto;
+    display: grid;
+    grid-template-columns: 1fr 25px;
+    margin-bottom: 25px;
+  }
+
+  .cart-item-details {
+    margin-left: 15px;
   }
 
   .cart-item img {
