@@ -7,6 +7,7 @@ import { Mutation } from 'react-apollo'
 import User from './User'
 import { CURRENT_USER_QUERY } from './User'
 import Cart from './Cart'
+import CartCount from './CartCount'
 import { TOGGLE_CART_MUTATION } from './Cart'
 
 Router.onRouteChangeStart = () => {
@@ -69,6 +70,23 @@ const Nav = () => {
                   <Link href="/manage">
                     <a>Manage</a>
                   </Link>
+                </li>
+
+                <li>
+                  <Mutation mutation={TOGGLE_CART_MUTATION}>
+                    {toggleCart => (
+                      <button className="nav-button" onClick={toggleCart}>
+                        Cart
+                        <CartCount
+                          count={data.me.cart.reduce(
+                            (tally, cartProduct) =>
+                              tally + cartProduct.quantity,
+                            0
+                          )}
+                        />
+                      </button>
+                    )}
+                  </Mutation>
                 </li>
 
                 <li>

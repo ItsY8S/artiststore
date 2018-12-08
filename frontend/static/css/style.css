@@ -239,7 +239,7 @@ tbody tr td label {
 }
 
 #search {
-  width: 200px;
+  max-width: 300px;
   justify-self: right;
   border-radius: 25px;
   font-size: 24px;
@@ -254,6 +254,9 @@ tbody tr td label {
 #search:focus {
   border-color: black;
   opacity: 1;
+}
+#search:focus-within {
+  /* border-radius: 25px 25px 0px 0px; */
 }
 
 .fixed {
@@ -719,19 +722,48 @@ aside {
   transform: translateX(-150%);
 } */
 
+/* div.cart-dot {
+  background-color: #704ce5;
+  color: white;
+  display: inline-block;
+  border-radius: 50%;
+  padding: 0.5rem;
+  line-height: 2rem;
+  min-width: 3rem;
+  margin-left: 1rem;
+  vertical-align: middle;
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-feature-settings: 'tnum';
+  font-variant-numeric: tabular-nums;
+} */
+
+/* Fix counter position in sidebar */
+button span div {
+  display: inline-block;
+}
+
+button.addToCart {
+  background-color: #9964ff;
+  color: white;
+  font-size: 16px;
+  border: none;
+}
+
+button.addToCart:hover {
+  color: white;
+  border: none;
+}
+
 .close-cart {
   font-size: 30px;
 }
 
-.cart-item {
-  width: auto;
-  display: grid;
-  grid-template-columns: 75px 1fr 50px 25px;
-}
-
 .cart-item-remove {
+  all: unset;
   font-size: 28px;
   color: black;
+  cursor: pointer;
 }
 
 .cart-item-title {
@@ -759,8 +791,11 @@ aside {
 .cart-item h6 {
   width: -webkit-fill-available;
   text-align: left;
-  padding-left: 10px;
   margin-bottom: 0;
+}
+
+.cart-item-count {
+  font-size: 1.4rem;
 }
 
 .cart-item td {
@@ -810,6 +845,11 @@ a[aria-disabled='true'] {
 
 .fw-500 {
   font-weight: 500;
+}
+
+.search-flex {
+  display: flex;
+  justify-content: space-between;
 }
 
 @media (min-width: 0px) and (max-width: 600px) {
