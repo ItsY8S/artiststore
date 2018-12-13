@@ -44,7 +44,7 @@ const Permissions = props => (
           <h4 className="bold">Permissions</h4>
           <table id="permissions">
             <thead>
-              <tr>
+              <tr className="font-16">
                 <th>Name</th>
                 <th>Email</th>
                 {possiblePermissions.map(permission => (

@@ -198,7 +198,9 @@ table {
 }
 table thead {
   font-size: 20px;
-  font-weight: bold;
+}
+thead tr th {
+  font-weight: 500;
 }
 table tbody tr {
   font-size: 18px;
@@ -244,8 +246,8 @@ tbody tr td label {
   padding: 12px 15px;
 }
 
-thead {
-  text-transform: uppercase;
+.font-16 {
+  font-size: 1.6rem;
 }
 
 .fw-300 {
@@ -763,6 +765,12 @@ aside {
 #contact-form {
   width: 400px;
   margin: 0;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 50px;
 }
 
 /* aside.cart {

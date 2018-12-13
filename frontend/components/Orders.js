@@ -53,7 +53,7 @@ class Orders extends React.Component {
                         }}
                       >
                         <a>
-                          <img width="100" src={order.items[0].image} />
+                          <img width="70" src={order.items[0].image} />
                         </a>
                       </Link>
                     </td>
