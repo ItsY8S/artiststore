@@ -4,6 +4,8 @@ enum Permission {
   PRODUCTCREATE
   PRODUCTUPDATE
   PRODUCTDELETE
+  CONCERTCREATE
+  CONCERTDELETE
   PERMISSIONUPDATE
 }
 
@@ -52,4 +54,12 @@ type Order {
   charge: String!
   createdAt: DateTime!
   updatedAt: DateTime!
+}
+
+type Concert {
+  id: ID! @unique
+  date: DateTime!
+  location: String!
+  venue: String!
+  user: User!
 }

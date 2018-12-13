@@ -304,6 +304,43 @@ const Mutations = {
     })
 
     return order
+  },
+  async createConcert(parent, args, ctx, info) {
+    if (!ctx.request.userId) {
+      throw new Error('You must be signed in to do that.')
+    }
+
+    const concert = await ctx.db.mutation.createConcert(
+      {
+        data: {
+          user: {
+            connect: {
+              id: ctx.request.userId
+            }
+          },
+          ...args
+        }
+      },
+      info
+    )
+    console.log(concert)
+    return concert
+  },
+  async deleteConcert(parent, args, ctx, info) {
+    const where = { id: args.id }
+    const concert = await ctx.db.query.concert(
+      { where },
+      `{ id location venue user { id } }`
+    )
+    const ownsConcert = concert.user.id === ctx.request.userId
+    const hasPermissions = ctx.request.user.permissions.some(permission =>
+      ['ADMIN', 'CONCERTDELETE'].includes(permission)
+    )
+    if (!ownsConcert && !hasPermissions) {
+      throw new Error("You don't have permission to delete this concert.")
+    }
+
+    return ctx.db.mutation.deleteConcert({ where }, info)
   }
 }
 
