@@ -1,7 +1,11 @@
-# source: https://us1.prisma.sh/griffin-yates/artist-store/dev
-# timestamp: Thu Dec 06 2018 17:31:22 GMT-0500 (EST)
+# source: https://artist-store-live-132d0413e3.herokuapp.com/artist-store-live/live
+# timestamp: Thu Dec 13 2018 13:47:44 GMT-0500 (EST)
 
 type AggregateCartProduct {
+  count: Int!
+}
+
+type AggregateConcert {
   count: Int!
 }
 
@@ -321,6 +325,272 @@ input CartProductWhereUniqueInput {
   id: ID
 }
 
+type Concert implements Node {
+  id: ID!
+  date: DateTime!
+  location: String!
+  venue: String!
+  user: User!
+}
+
+"""A connection to a list of items."""
+type ConcertConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [ConcertEdge]!
+  aggregate: AggregateConcert!
+}
+
+input ConcertCreateInput {
+  date: DateTime!
+  location: String!
+  venue: String!
+  user: UserCreateOneInput!
+}
+
+"""An edge in a connection."""
+type ConcertEdge {
+  """The item at the end of the edge."""
+  node: Concert!
+
+  """A cursor for use in pagination."""
+  cursor: String!
+}
+
+enum ConcertOrderByInput {
+  id_ASC
+  id_DESC
+  date_ASC
+  date_DESC
+  location_ASC
+  location_DESC
+  venue_ASC
+  venue_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type ConcertPreviousValues {
+  id: ID!
+  date: DateTime!
+  location: String!
+  venue: String!
+}
+
+type ConcertSubscriptionPayload {
+  mutation: MutationType!
+  node: Concert
+  updatedFields: [String!]
+  previousValues: ConcertPreviousValues
+}
+
+input ConcertSubscriptionWhereInput {
+  """Logical AND on all given filters."""
+  AND: [ConcertSubscriptionWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [ConcertSubscriptionWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [ConcertSubscriptionWhereInput!]
+
+  """
+  The subscription event gets dispatched when it's listed in mutation_in
+  """
+  mutation_in: [MutationType!]
+
+  """
+  The subscription event gets only dispatched when one of the updated fields names is included in this list
+  """
+  updatedFields_contains: String
+
+  """
+  The subscription event gets only dispatched when all of the field names included in this list have been updated
+  """
+  updatedFields_contains_every: [String!]
+
+  """
+  The subscription event gets only dispatched when some of the field names included in this list have been updated
+  """
+  updatedFields_contains_some: [String!]
+  node: ConcertWhereInput
+}
+
+input ConcertUpdateInput {
+  date: DateTime
+  location: String
+  venue: String
+  user: UserUpdateOneRequiredInput
+}
+
+input ConcertUpdateManyMutationInput {
+  date: DateTime
+  location: String
+  venue: String
+}
+
+input ConcertWhereInput {
+  """Logical AND on all given filters."""
+  AND: [ConcertWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [ConcertWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [ConcertWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
+  date: DateTime
+
+  """All values that are not equal to given value."""
+  date_not: DateTime
+
+  """All values that are contained in given list."""
+  date_in: [DateTime!]
+
+  """All values that are not contained in given list."""
+  date_not_in: [DateTime!]
+
+  """All values less than the given value."""
+  date_lt: DateTime
+
+  """All values less than or equal the given value."""
+  date_lte: DateTime
+
+  """All values greater than the given value."""
+  date_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  date_gte: DateTime
+  location: String
+
+  """All values that are not equal to given value."""
+  location_not: String
+
+  """All values that are contained in given list."""
+  location_in: [String!]
+
+  """All values that are not contained in given list."""
+  location_not_in: [String!]
+
+  """All values less than the given value."""
+  location_lt: String
+
+  """All values less than or equal the given value."""
+  location_lte: String
+
+  """All values greater than the given value."""
+  location_gt: String
+
+  """All values greater than or equal the given value."""
+  location_gte: String
+
+  """All values containing the given string."""
+  location_contains: String
+
+  """All values not containing the given string."""
+  location_not_contains: String
+
+  """All values starting with the given string."""
+  location_starts_with: String
+
+  """All values not starting with the given string."""
+  location_not_starts_with: String
+
+  """All values ending with the given string."""
+  location_ends_with: String
+
+  """All values not ending with the given string."""
+  location_not_ends_with: String
+  venue: String
+
+  """All values that are not equal to given value."""
+  venue_not: String
+
+  """All values that are contained in given list."""
+  venue_in: [String!]
+
+  """All values that are not contained in given list."""
+  venue_not_in: [String!]
+
+  """All values less than the given value."""
+  venue_lt: String
+
+  """All values less than or equal the given value."""
+  venue_lte: String
+
+  """All values greater than the given value."""
+  venue_gt: String
+
+  """All values greater than or equal the given value."""
+  venue_gte: String
+
+  """All values containing the given string."""
+  venue_contains: String
+
+  """All values not containing the given string."""
+  venue_not_contains: String
+
+  """All values starting with the given string."""
+  venue_starts_with: String
+
+  """All values not starting with the given string."""
+  venue_not_starts_with: String
+
+  """All values ending with the given string."""
+  venue_ends_with: String
+
+  """All values not ending with the given string."""
+  venue_not_ends_with: String
+  user: UserWhereInput
+}
+
+input ConcertWhereUniqueInput {
+  id: ID
+}
+
 scalar DateTime
 
 """
@@ -332,31 +602,37 @@ scalar Long
 type Mutation {
   createCartProduct(data: CartProductCreateInput!): CartProduct!
   createOrder(data: OrderCreateInput!): Order!
+  createConcert(data: ConcertCreateInput!): Concert!
   createOrderItem(data: OrderItemCreateInput!): OrderItem!
   createUser(data: UserCreateInput!): User!
   createProduct(data: ProductCreateInput!): Product!
   updateCartProduct(data: CartProductUpdateInput!, where: CartProductWhereUniqueInput!): CartProduct
   updateOrder(data: OrderUpdateInput!, where: OrderWhereUniqueInput!): Order
+  updateConcert(data: ConcertUpdateInput!, where: ConcertWhereUniqueInput!): Concert
   updateOrderItem(data: OrderItemUpdateInput!, where: OrderItemWhereUniqueInput!): OrderItem
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
   updateProduct(data: ProductUpdateInput!, where: ProductWhereUniqueInput!): Product
   deleteCartProduct(where: CartProductWhereUniqueInput!): CartProduct
   deleteOrder(where: OrderWhereUniqueInput!): Order
+  deleteConcert(where: ConcertWhereUniqueInput!): Concert
   deleteOrderItem(where: OrderItemWhereUniqueInput!): OrderItem
   deleteUser(where: UserWhereUniqueInput!): User
   deleteProduct(where: ProductWhereUniqueInput!): Product
   upsertCartProduct(where: CartProductWhereUniqueInput!, create: CartProductCreateInput!, update: CartProductUpdateInput!): CartProduct!
   upsertOrder(where: OrderWhereUniqueInput!, create: OrderCreateInput!, update: OrderUpdateInput!): Order!
+  upsertConcert(where: ConcertWhereUniqueInput!, create: ConcertCreateInput!, update: ConcertUpdateInput!): Concert!
   upsertOrderItem(where: OrderItemWhereUniqueInput!, create: OrderItemCreateInput!, update: OrderItemUpdateInput!): OrderItem!
   upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
   upsertProduct(where: ProductWhereUniqueInput!, create: ProductCreateInput!, update: ProductUpdateInput!): Product!
   updateManyCartProducts(data: CartProductUpdateManyMutationInput!, where: CartProductWhereInput): BatchPayload!
   updateManyOrders(data: OrderUpdateManyMutationInput!, where: OrderWhereInput): BatchPayload!
+  updateManyConcerts(data: ConcertUpdateManyMutationInput!, where: ConcertWhereInput): BatchPayload!
   updateManyOrderItems(data: OrderItemUpdateManyMutationInput!, where: OrderItemWhereInput): BatchPayload!
   updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
   updateManyProducts(data: ProductUpdateManyMutationInput!, where: ProductWhereInput): BatchPayload!
   deleteManyCartProducts(where: CartProductWhereInput): BatchPayload!
   deleteManyOrders(where: OrderWhereInput): BatchPayload!
+  deleteManyConcerts(where: ConcertWhereInput): BatchPayload!
   deleteManyOrderItems(where: OrderItemWhereInput): BatchPayload!
   deleteManyUsers(where: UserWhereInput): BatchPayload!
   deleteManyProducts(where: ProductWhereInput): BatchPayload!
@@ -1274,6 +1550,8 @@ enum Permission {
   PRODUCTCREATE
   PRODUCTUPDATE
   PRODUCTDELETE
+  CONCERTCREATE
+  CONCERTDELETE
   PERMISSIONUPDATE
 }
 
@@ -1620,16 +1898,19 @@ input ProductWhereUniqueInput {
 type Query {
   cartProducts(where: CartProductWhereInput, orderBy: CartProductOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [CartProduct]!
   orders(where: OrderWhereInput, orderBy: OrderOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Order]!
+  concerts(where: ConcertWhereInput, orderBy: ConcertOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Concert]!
   orderItems(where: OrderItemWhereInput, orderBy: OrderItemOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [OrderItem]!
   users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
   products(where: ProductWhereInput, orderBy: ProductOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Product]!
   cartProduct(where: CartProductWhereUniqueInput!): CartProduct
   order(where: OrderWhereUniqueInput!): Order
+  concert(where: ConcertWhereUniqueInput!): Concert
   orderItem(where: OrderItemWhereUniqueInput!): OrderItem
   user(where: UserWhereUniqueInput!): User
   product(where: ProductWhereUniqueInput!): Product
   cartProductsConnection(where: CartProductWhereInput, orderBy: CartProductOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): CartProductConnection!
   ordersConnection(where: OrderWhereInput, orderBy: OrderOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): OrderConnection!
+  concertsConnection(where: ConcertWhereInput, orderBy: ConcertOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ConcertConnection!
   orderItemsConnection(where: OrderItemWhereInput, orderBy: OrderItemOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): OrderItemConnection!
   usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
   productsConnection(where: ProductWhereInput, orderBy: ProductOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ProductConnection!
@@ -1644,6 +1925,7 @@ type Query {
 type Subscription {
   cartProduct(where: CartProductSubscriptionWhereInput): CartProductSubscriptionPayload
   order(where: OrderSubscriptionWhereInput): OrderSubscriptionPayload
+  concert(where: ConcertSubscriptionWhereInput): ConcertSubscriptionPayload
   orderItem(where: OrderItemSubscriptionWhereInput): OrderItemSubscriptionPayload
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
   product(where: ProductSubscriptionWhereInput): ProductSubscriptionPayload

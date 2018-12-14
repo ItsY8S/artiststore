@@ -1,11 +1,13 @@
 import Title from '../components/Title'
+import Dashboard from '../components/Dashboard'
 
-const Dashboard = props => {
+const dashboard = props => {
   return (
-    <div>
+    <>
       <Title title="Dashboard" />
-    </div>
+      <Dashboard />
+    </>
   )
 }
 
-export default Dashboard
+export default dashboard

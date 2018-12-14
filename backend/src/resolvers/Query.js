@@ -4,6 +4,7 @@ const { hasPermission } = require('../utils')
 const Query = {
   products: forwardTo('db'),
   product: forwardTo('db'),
+  concerts: forwardTo('db'),
   productsConnection: forwardTo('db'),
   me(parent, args, ctx, info) {
     if (!ctx.request.userId) {
@@ -58,6 +59,14 @@ const Query = {
       info
     )
   }
+  // async concerts(parent, args, ctx, info) {
+  //   // const { userId } = ctx.request
+  //   // if (!userId) {
+  //   //   throw new Error('you must be signed in!')
+  //   // }
+  //   const concerts = await ctx.db.query.concerts()
+  //   return concerts
+  // }
 }
 
 module.exports = Query

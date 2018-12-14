@@ -7,7 +7,7 @@ const Meta = () => {
       <meta charSet="utf-8" />
       <link rel="shortcut icon" href="/static/favicon.png" />
       <link
-        href="https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i,600,600i,700,700i|Oswald:400,600"
+        href="https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i,600,600i,700,700i|Oswald:300,400,500,600,700"
         rel="stylesheet"
       />
       <link href="/static/css/normalize.css" rel="stylesheet" />

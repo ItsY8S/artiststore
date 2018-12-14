@@ -189,15 +189,30 @@ nav#sidebar {
   opacity: 0.5;
 }
 
+.uppercase {
+  text-transform: uppercase;
+}
+
 table {
   font-family: Oswald;
 }
 table thead {
-  /* font-size: 20px; */
-  /* font-weight: bold; */
+  font-size: 20px;
+}
+thead tr th {
+  font-weight: 500;
 }
 table tbody tr {
-  /* font-size: 18px; */
+  font-size: 18px;
+}
+
+th:last-child,
+td:last-child {
+  text-align: right;
+}
+
+td:first-child {
+  letter-spacing: 0px;
 }
 
 table.permissions tbody tr td {
@@ -205,7 +220,8 @@ table.permissions tbody tr td {
 }
 
 tbody tr td {
-  padding: 12px 15px;
+  padding: 15px 15px;
+  border-bottom: none;
 }
 
 td label {
@@ -217,9 +233,33 @@ td label input {
   margin: 1rem;
 }
 
+tr td input {
+  margin-bottom: 0;
+  width: 90%;
+  text-transform: uppercase;
+  border: none !important;
+  padding: 0 !important;
+}
+
 tbody tr td label {
   display: block;
   padding: 12px 15px;
+}
+
+.font-16 {
+  font-size: 1.6rem;
+}
+
+.fw-300 {
+  font-weight: 300;
+}
+
+.fw-600 {
+  font-weight: 600;
+}
+
+.fw-700 {
+  font-weight: 700;
 }
 
 .grid {
@@ -421,11 +461,25 @@ select.sizes {
   justify-content: space-between;
 }
 
-.green {
+.red {
+  background-color: #ee2e24;
+}
+
+.btn-solid {
   border: none;
   font-size: 14px;
-  background-color: limegreen;
+  color: white;
   margin-bottom: 0;
+}
+
+.green {
+  background-color: limegreen;
+}
+
+.btn-solid:focus,
+.btn-solid:hover,
+.btn-solid:visited {
+  color: white;
 }
 
 .reset-link {
@@ -438,6 +492,10 @@ select.sizes {
 
 td {
   border-bottom: none;
+}
+
+.concert-info {
+  text-transform: uppercase;
 }
 
 .live-input {
@@ -707,6 +765,12 @@ aside {
 #contact-form {
   width: 400px;
   margin: 0;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 50px;
 }
 
 /* aside.cart {
