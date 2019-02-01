@@ -9,3 +9,9 @@ I determined that my audience were 16-30 year old musical artists. A problem the
 ### Why I built it
 
 I decided on making Artist Store because I love music and it was a personal challenge to myself before graduating. Anything music related is enjoyable, and doesn't feel like work. I want to continue building tools to help artists in the future.
+
+### Project Images
+
+![Image 1](https://itsy8s.github.io/Y8S-Portfolio/images/Artist%20Store%201.jpg)
+![Image 2](https://itsy8s.github.io/Y8S-Portfolio/images/Artist%20Store%202.jpg)
+![Image 3](https://itsy8s.github.io/Y8S-Portfolio/images/Artist%20Store%203.jpg)
